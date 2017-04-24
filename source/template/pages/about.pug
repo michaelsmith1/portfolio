@@ -1,0 +1,129 @@
+extends ../_template
+
+block variables
+    -var title = 'Обо мне'
+
+block content
+    .wrapper.wrapper_mod
+        section.gsection.wrapper-welcome
+            .soclinks__mod
+                ul.soclinks__list
+                    each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
+                        li.soclinks__list__item
+                            a(href=`${item.link}`).soclinks__list__item__link.soclinks__list__item__link_colbel
+                                i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
+            .menu__hamburger
+                span
+            .usercart
+                .usercart-info.usercart-info__mod
+                    img(src="/assets/img/me.jpg").usercart__photo
+                    .usercart-info__name
+                        p Михаил Журкин
+                    .usercart-info__description
+                        p Личный сайт веб разработчика
+            .down_arrow
+                a(href="")
+                    i(class='fa fa-chevron-down fa-2x down-arrow__icon' aria-hidden='true')
+
+        section.about.clearfix
+            .about__left
+                svg(
+                viewbox="0 0 1000 100"
+                preserveAspectRatio="none"
+                class="triangle")
+                    polygon(points="0,0 0,100 1000,100")
+                .user-about
+                    .title.icon-about_header
+                        h2 Обо мне
+                    .user-about__picture
+                        img(src="/assets/img/I.jpg").picture
+                    .user-about__title
+                        .title.title_sub
+                            | Кто я
+                    .user-about__text
+                        p Я веб разработчик из Воронежа. Мне 26 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+            .about__right
+                svg(
+                viewbox="0 0 1000 100"
+                preserveAspectRatio="none"
+                class="triangle")
+                    polygon(points="0,100 1000,100 1000,0")
+                .about-data
+                    .about-data__description.about-user-info
+                        .title.about-user-info__title
+                            h2 Чем я могу быть  вам полезен
+                        .about-user-info__text
+                            p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачина Backend. Но давайте по порядку.
+                    .about-data__content
+                      ul.skills
+                          li.skills__item
+                              | Frontend
+                              ul.skill
+                                  li.skill__item
+                                      | HTML5
+                                  li.skill__item
+                                      | CSS3
+                                  li.skill__item
+                                      | JavaScript & JQuery
+                          li.skills__item
+                              | Backend
+                              ul.skill
+                                  li.skill__item
+                                      | PHP
+                                  li.skill__item
+                                      | MySQL
+                                  li.skill__item
+                                      | Node.js & npm
+                                  li.skill__item
+                                      | Mongo.db
+                          li.skills__item
+                              | WorkFlow
+                              ul.skill
+                                  li.skill__item
+                                      | Git
+                                  li.skill__item
+                                      | Gulp
+                                  li.skill__item
+                                      | WebPack
+                                  li.skill__item
+                                      | Bower
+        section.map
+            .contacts
+                .title.title_mod
+                    h2 Контакты
+                .contacts__info
+                    .contacts__info__item.contacts__skype
+                        i(class='fa fa-skype fa-2x' aria-hidden='true')
+                        span mikhail11117
+                    .contacts__info__item.contacts__mail
+                        i(class='fa fa-envelope fa-2x' aria-hidden='true')
+                        span 89611865061@ya.ru
+                    .contacts__info__item.contacts__phone
+                        i(class='fa fa-phone fa-2x' aria-hidden='true')
+                        span 89611865061
+                    .contacts__info__item.contacts__adress
+                        i(class='fa fa-map-marker fa-2x' aria-hidden='true')
+                        span г.Воронеж ул. 45 стрелковой девизии 62а
+
+    footer.footer.footer-main
+        .footer__row
+            .footer__left
+                ul.nav-menu
+                    each item in [{name:'Мои работы', link:'works'}, {name:'Обо мне', link:'about'}, {name:'Блог', link:'blog'}, {name:'Авторизация', link:'#'}]
+                        li.nav-menu__item
+                            a(href=`${item.link}.html`).nav-menu__link= item.name
+            .footer__right
+                .soclinks__footer
+                    ul.soclinks__list
+                        each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
+                            li.soclinks__list__item.soclinks__list__item_footer
+                                a(href=`${item.link}`).soclinks__list__item__link.soclinks__list__item__link_footer
+                                    i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
+
+        .footer__row.footer__row_hr
+            .footer__left
+                .footer__about
+                    | Я веб-разработчик из Воронежа, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+            .footer__right
+                .footer__about-user-name
+                    | © Михаил Журкин | создано с любовью в LoftSchool | 2017

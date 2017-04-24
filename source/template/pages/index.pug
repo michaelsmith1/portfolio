@@ -1,5 +1,31 @@
 extends ../_template
 
 block variables
-  - var title = 'Home page'
+  - var title = 'Страница приветствия'
 
+block content
+  .wrapper.wrapper-welcome
+    section.hero
+      .buttonauth
+        a(href='#') Авторизоваться
+      .usercart
+        .usercart-info.usercart-welcome
+          img(src="/assets/img/me.jpg").usercart__photo
+          .usercart-info__name
+            p Михаил Журкин
+          .usercart-info__description
+            p Личный сайт веб разработчика
+          .soclinks
+            ul.soclinks__list
+              each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
+                li.soclinks__list__item
+                  a(href=`${item.link}` target='_blank').soclinks__list__item__link.soclinks__list__item__link_colbr
+                    i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
+        .usercart__menu
+          ul.usercart__menu__list
+            each mnu in [{name: 'Мои работы', link: 'works'}, {name: 'Обо мне', link: 'about'}, {name: 'Блог', link:'blog'}]
+              li.usercart__menu__list__item
+                a.usercart__menu__list__item__link(href=`${mnu.link}.html`)=mnu.name
+  footer.footer
+    .copyright
+      | © Михаил Журкин | создано с любовью студентом LoftSchool | 2017

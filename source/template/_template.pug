@@ -1,3 +1,4 @@
+include mixins
 block variables
 
 doctype html
@@ -10,11 +11,12 @@ html
     meta(content="" name="keywords")
     meta(content="width=device-width, initial-scale=1" name="viewport")
     meta(content="ie=edge" http-equiv="x-ua-compatible")
-
+    link(rel='stylesheet' href='https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css' integrity='sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU' crossorigin='anonymous')
     link(rel='stylesheet' href='/assets/css/foundation.css')
-    link(rel='stylesheet' href='/assets/css/app.css')
-    script(src='/assets/js/foundation.js' defer)
-    script(src='/assets/js/app.js' defer)
+    link(rel='stylesheet' href='/assets/css/setup.css')
+    link(rel='stylesheet' href='/assets/css/main.css')
+    //- script(src='/assets/js/foundation.js' defer)
+    //- script(src='/assets/js/app.js' defer)
 
     <!--[if lt IE 9]>
     script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
