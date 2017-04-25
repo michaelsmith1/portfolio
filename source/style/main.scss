@@ -50,9 +50,27 @@ $bz-color : #00C1A0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  &_fon{
+    width: 100%;
+    background: url(../img/portfolio_header.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
 
   &-welcome{
     background-color: rgba(#fcfcfc,0.85);
+  }
+
+  .usercart &-title{
+    padding:0 80px;
+    &:before, &:after{
+      background-color: rgba(#fff, .2);
+    }
+    &-text{
+      font-size: 63px;
+      color: #ffffff;
+    }
   }
 }
 
@@ -65,6 +83,11 @@ $bz-color : #00C1A0;
   &__name{
     font-size: 28px;
   }
+  &_fon{
+    background-size: contain;
+    background-position: center bottom;
+    padding-bottom: 70px;
+  }
 }
 
 img.usercart__photo{
@@ -75,7 +98,7 @@ img.usercart__photo{
 .soclinks{
   padding: 30px 0;
   &__footer{
-    margin: 29px 25px;
+    margin: 19px 25px;
   }
   &__mod{
     position: relative;
@@ -87,6 +110,19 @@ img.usercart__photo{
     &__link{
       margin:0 15px;
       display: block;
+      &_footer{
+        display: inline-block;
+        border: 1px solid rgba(#fff,.5);
+        border-radius: 50%;
+        width: 52px;
+        padding: 9px;
+        margin: 0 5px;
+        color: rgba(#ffffff,0.5);
+        &:hover{
+          background: #ffffff;
+          color: rgba(#000,0.5);
+        }
+      }
       &_colbr{
         color: rgba(#00bfa5,0.5);
         :hover{
@@ -148,13 +184,22 @@ img.usercart__photo{
     margin: auto;
     &__item{
       display: inline-block;
+      border-left: 0;
+      border-right:solid 2px rgba(#dee3e7,.5);
+      &:last-child{
+        border-right: 0px;
+        border-radius: 0 0 4px;
+      }
+      &:first-child{
+        border-radius: 0 0 0 4px;
+      }
 
       &:hover{
-        background-color: rgba(#008A7E,.6);
+        background-color: rgba(#008A7E,.7);
       }
       &__link{
         display: block;
-        padding: 15px 30px;
+        padding: 15px 29px;
       }
     }
   }
@@ -211,6 +256,9 @@ img.usercart__photo{
     display: inline-block;
     margin: 5px;
   }
+  &__link:hover{
+    color: #00C19F;
+  }
 }
 //footer end
 
@@ -225,11 +273,13 @@ img.usercart__photo{
   height: 600px;
 }
 
+.about{
+  background: #F0EBDD;
+}
 .about__left, .about__right {
   float: left;
   width: 50%;
   position: relative;
-  background: #F0EBDD;
 }
 .triangle {
   position: absolute;
@@ -250,6 +300,16 @@ img.usercart__photo{
   background-repeat: no-repeat;
   $margin : 40px;
 
+  &-about{
+    background: url(../img/about_header.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    .header_text{
+      font-size: 63px;
+    }
+  }
   &_mod{
     padding:10px 80px;
   }
@@ -278,16 +338,19 @@ img.usercart__photo{
 .user-about, .about-data{
   text-align: center;
 }
-.user-about__picture{
-  width: 450px;
-  height: 390px;
-  margin: 0 auto;
+.user-about__right{
+  margin-top: 20px;
+}
+
+.picture{
+  width: 320px;
 }
 
 .user-about__text, .about-user-info__text{
   word-wrap: break-word;
   margin: 0 50px 20px;
   text-align: left;
+  line-height: 24px;
   overflow: hidden;
 }
 
@@ -307,7 +370,7 @@ img.usercart__photo{
 }
 .map{
   position: relative;
-  background: url(../img/map.jpeg);
+  background: url(../img/map.jpg);
   clear: both;
   height: 800px;
 }
@@ -323,11 +386,30 @@ img.usercart__photo{
     text-align: left;
     margin-left: 45px;
     &__item{
+      font: normal normal normal 16px/1 FontAwesome;
       margin: 10px;
+      &:before{
+        font-size: 36px;
+        color: #00C2A1;
+      }
+      &__link{
+        color: rgba(#455a64,.8);
+        font-family: "Roboto Medium";
+        margin: 20px;
+      }
     }
   }
-  i{
-    color: $bz-color;
+  &__skype:before{
+    content: "\f17e";
+  }
+  &__mail:before{
+    content: "\f0e0";
+  }
+  &__phone:before{
+    content: "\f095";
+  }
+  &__adress:before{
+    content: "\f041";
   }
 }
 //about end
@@ -335,24 +417,176 @@ img.usercart__photo{
 
 //blog
 
+.bsection{
+  height: 400px;
+}
+.blog__menu, .blog__contain{
+  float: left;
+}
+
 .container{
   width: 1270px;
   margin: 50px auto;
 }
 
-.blog__menu{
-  width: 30%;
-}
-
-.blog__contain{
-  width: 70%;
-}
-
-.blog__menu, .blog__contain{
-  float: left;
-}
-.blog__menu{
-  .blog__menu__list__link{
-    margin: 15px;
+.blog{
+  &__menu{
+    width: 25%;
+    &__list__link{
+      padding: 18px;
+      margin: 15px;
+      text-align: right;
+      &.link_active{
+        border-right:3px solid #00bfa5;
+        color: #00bfa5;
+        font-family:"BERNIER Regular";
+      }
+    }
   }
+  &__contain{
+    width: 75%;
+    &__list{
+      width: 80%;
+      margin: 0 auto;
+      &__link{
+        padding-bottom: 70px;
+        margin-bottom: 40px;
+        border-bottom: 5px solid rgba(#373e42, .07);
+        &:last-child{
+          border-bottom: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &__title{
+    font-family:"BERNIER Regular";
+    font-size: 35px;
+    margin: 20px 0;
+  }
+  &__data{
+    color: #00bfa5;
+    margin: 5px 0 20px;
+  }
+  &__text{
+    line-height: 26px;
+    word-wrap:break-word;
+    overflow: hidden;
+  }
+}
+
+//works
+
+.works{
+  text-align: center;
+  &__header{
+    background: url(../img/works_header.png) no-repeat;
+    background-size: contain;
+    &__text{
+      font-size: 63px;
+    }
+  }
+  &__wiev{
+    background: #f0efe9;
+  }
+}
+
+
+.aboutme{
+  background: url(../img/bg-footer.jpg) no-repeat;
+  background-size: cover;
+  text-align: center;
+  background-position-y: center;
+  height: 100%;
+}
+
+.title-aboutme{
+  font-size: 63px;
+}
+
+.container__feed{
+  width: 70%;
+  margin: 0 auto 50px;
+}
+
+.feedbacks__item{
+  float: left;
+  width: 50%;
+  text-align: left;
+  padding: 0 20px;
+  &__link{
+    margin: 15px 0;
+  }
+  &__profile__info{
+    padding: 25px;
+    .p{
+      color: #20b5a1;
+    }
+    .pb{
+      font-weight: bold;
+    }
+  }
+  __text{
+    word-wrap:break-word;
+    overflow: hidden;
+  }
+}
+
+
+
+.feedbacks__item__profile__photo, .feedbacks__item__profile__photo{
+  float: left;
+  margin: 10px 20px;
+}
+
+
+
+.contform{
+  margin: auto;
+  padding-bottom: 150px;
+  &__title{
+    text-align: center;
+  }
+}
+.contform__title{
+  padding: 10px 60px;
+  &:before{
+    left: 20px;
+  }
+  &:after{
+    right: 20px;
+  }
+}
+.blur{
+
+
+
+
+}
+.blur__form{
+  width: 380px;
+  margin: 0 auto;
+  border-radius: 4px;
+  background: rgba(#fff, .15);
+  filter: blur(5px);
+
+
+}
+.form{
+  filter: blur(0);
+  margin:0 auto;
+  &__input{
+    display: block;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 4px;
+    border: 0;
+    width: 80%;
+  }
+  &.__menu__input{
+    width: 50%;
+  }
+}
+.up_arrow{
+  bottom: 75px;
 }

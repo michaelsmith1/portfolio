@@ -1,0 +1,90 @@
+extends ../_template
+
+block variables
+    -var title = 'Обо мне'
+
+block content
+    .wrapper.wrapper_mod
+        section.gsection.wrapper-welcome
+            .soclinks__mod
+                ul.soclinks__list
+                    each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
+                        li.soclinks__list__item
+                            a(href=`${item.link}` target='_blank').soclinks__list__item__link.soclinks__list__item__link_colbel
+                                i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
+            .menu__hamburger
+                span
+            .usercart.usercart_fon
+                .usercart-info.usercart-info__mod
+                    img(src="/assets/img/me.jpg").usercart__photo
+                    .usercart-info__name
+                        p Михаил Журкин
+                    .usercart-info__description
+                        p Личный сайт веб разработчика
+            .down_arrow
+                a(href="#")
+                    i(class='fa fa-chevron-down fa-2x down-arrow__icon' aria-hidden='true')
+        section.about.clearfix
+            .about__left
+                svg(
+                viewbox="0 0 1000 100"
+                preserveAspectRatio="none"
+                class="triangle")
+                    polygon(points="0,0 0,100 1000,100")
+            .about__right
+                svg(
+                viewbox="0 0 1000 100"
+                preserveAspectRatio="none"
+                class="triangle")
+                    polygon(points="0,100 1000,100 1000,0")
+        section.works
+            .title.works__header
+                h1.works__header__text Мои работы
+            .works__wiev
+
+        section.aboutme
+            .title.title-about.title-aboutme
+                | Что обо мне говорят
+            .container__feed
+                .feedbacks.clearfix
+                    .feedbacks__item
+                        .feedbacks__item__link.feedbacks__item__icon
+                            <i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>
+                        .feedbacks__item__link.feedbacks__item__text
+                            p
+                                | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!
+                                | 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                        .feedbacks__item__link.feedbacks__item__profile
+                            img(src='assets/img/layer 8.png').feedbacks__item__profile__photo
+                            .feedbacks__item__profile__info
+                                p.p.pb Ковальчук Дмитрий
+                                p.p основатель Loftschool
+                    .feedbacks__item
+                        .feedbacks__item__link.feedbacks__item__icon
+                            <i class="fa fa-quote-left fa-2x" aria-hidden="true"></i>
+                        .feedbacks__item__link.feedbacks__item__text
+                            p
+                                | Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                        .feedbacks__item__link.feedbacks__item__profile
+                            img(src='assets/img/9.png').feedbacks__item__profile__photo
+                            .feedbacks__item__profile__info
+                                p.p.pb Сабанцев Владимир
+                                p.p преподаватель
+            .contform
+                .blur__form
+                    .blur
+                    .title.contform__title Связаться со мной
+                    form.form
+                        input(placeholder='Имя' type='name').form__input.form__name
+                        input(placeholder='Email' type='mail').form__input.form__mail
+                        input(placeholder='Ваше сообщение' type='textarea' rows='4').form__input.form__text
+                        .form__menu
+                            input(placeholder='Имя' type='submit' name='kdddddd').form__menu__input.form__submit
+                            input(placeholder='Имя' type='submit').form__menu__input.form__clear
+            .down_arrow.up_arrow
+                a(href="#")
+                    i(class='fa fa-chevron-up fa-2x down-arrow__icon' aria-hidden='true')
+
+
+    .empty
+    + footer

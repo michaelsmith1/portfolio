@@ -16,21 +16,9 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 // HTML
 <i class="icon icon-home"></i>
 */
-.icon-about_header {
-  background-image: url(../img/sprite.png);
-  background-position: -258px -315px;
-  width: 357px;
-  height: 125px;
-}
 .icon-fav_mount {
   background-image: url(../img/sprite.png);
-  background-position: 0px -315px;
+  background-position: 0px 0px;
   width: 256px;
   height: 256px;
-}
-.icon-portfolio_header {
-  background-image: url(../img/sprite.png);
-  background-position: 0px 0px;
-  width: 1176px;
-  height: 313px;
 }

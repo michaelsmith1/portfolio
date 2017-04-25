@@ -1,3 +1,26 @@
 mixin title (title, url, additionClass)
   .title(style=`background-image: url('img/${url}')` class=additionClass)= title
 
+mixin footer
+  footer.footer.footer-main
+    .footer__row
+      .footer__left
+        ul.nav-menu
+          each item in [{name:'Мои работы', link:'works'}, {name:'Обо мне', link:'about'}, {name:'Блог', link:'blog'}, {name:'Авторизация', link:'#'}]
+            li.nav-menu__item
+              a(href=`${item.link}.html`).nav-menu__link= item.name
+      .footer__right
+        .soclinks__footer
+          ul.soclinks__list
+            each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
+              li.soclinks__list__item.soclinks__list__item_footer
+                a(href=`${item.link}` target='_blank').soclinks__list__item__link.soclinks__list__item__link_footer
+                  i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
+
+    .footer__row.footer__row_hr
+      .footer__left
+        .footer__about
+          | Я веб-разработчик из Воронежа, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+      .footer__right
+        .footer__about-user-name
+          | © Михаил Журкин | создано с любовью в LoftSchool | 2017
