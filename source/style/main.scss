@@ -2,7 +2,6 @@ $main-font-color : #373e42;
 $bz-color : #00C1A0;
 @import "fonts";
 @import "mixins";
-@import "sprite";
 .clearfix{
   &:after {
     content: "";
@@ -180,12 +179,12 @@ img.usercart__photo{
   border-radius: 0 0 4px 4px;
   &__list{
     width: 380px;
-    text-align: justify;
-    margin: auto;
+    display: flex;
+    justify-content: space-between;
     &__item{
-      display: inline-block;
-      border-left: 0;
       border-right:solid 2px rgba(#dee3e7,.5);
+      margin: 0;
+      outline-width: 0px;
       &:last-child{
         border-right: 0px;
         border-radius: 0 0 4px;
@@ -199,7 +198,7 @@ img.usercart__photo{
       }
       &__link{
         display: block;
-        padding: 15px 29px;
+        padding: 16px 30px;
       }
     }
   }
@@ -222,6 +221,7 @@ img.usercart__photo{
     clear: both;
     &_hr{
       border-top: solid rgba(#fff,.5) 1px;
+      font-family: "Roboto Light";
     }
   }
   &__left{
@@ -378,19 +378,24 @@ img.usercart__photo{
 .contacts{
   @include centered();
   width: 380px;
-  height: 290px;
   border-radius: 4px;
   background-color: rgba(#fcfcfc,0.85);
   text-align: center;
   &__info{
     text-align: left;
-    margin-left: 45px;
+    margin-left: 20px;
+    margin-bottom: 20px;
     &__item{
       font: normal normal normal 16px/1 FontAwesome;
-      margin: 10px;
+      padding: 20px 20px 20px 40px;
+      position: relative;
       &:before{
+        position: absolute;
+        left: 20px;
+        top: 10px;
         font-size: 36px;
         color: #00C2A1;
+        transform: translateX(-50%);
       }
       &__link{
         color: rgba(#455a64,.8);
