@@ -42,7 +42,8 @@ block content
                             .title.title_sub
                                 | Кто я
                         .user-about__text
-                            p Я веб разработчик из Воронежа. Мне 26 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                            p.user-about__text__content Я веб разработчик из Воронежа. Мне 26 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                            p.user-about__text__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я обновлю в нём весь контент.
             .about__right
                 svg(
                 viewbox="0 0 1000 100"
@@ -58,37 +59,93 @@ block content
                             p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачина Backend. Но давайте по порядку.
                     .about-data__content
                       ul.skills
-                          li.skills__item
-                              | Frontend
-                              ul.skill
-                                  li.skill__item
-                                      | HTML5
-                                  li.skill__item
-                                      | CSS3
-                                  li.skill__item
-                                      | JavaScript & JQuery
-                          li.skills__item
-                              | Backend
-                              ul.skill
-                                  li.skill__item
-                                      | PHP
-                                  li.skill__item
-                                      | MySQL
-                                  li.skill__item
-                                      | Node.js & npm
-                                  li.skill__item
-                                      | Mongo.db
-                          li.skills__item
-                              | WorkFlow
-                              ul.skill
-                                  li.skill__item
-                                      | Git
-                                  li.skill__item
-                                      | Gulp
-                                  li.skill__item
-                                      | WebPack
-                                  li.skill__item
-                                      | Bower
+                          each skill in skills
+                              each skillsArray, skillName in skill
+                                  li.skills__item= skillName
+                                      ul.skill
+                                          each skillTitle in skillsArray
+                                              li.skill__item
+                                                  svg.circles(viewbox='0 0 110 110')
+                                                      circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                                                      circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                                                  .skill__item__name= skillTitle
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //                | CSS3
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //              | JavaScript & JQuery
+                          //li.skills__item
+                          //    | Backend
+                          //    ul.skill
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //              | PHP
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //
+                          //                | MySQL
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //              | Node.js & npm
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //              | Mongo.db
+                          //li.skills__item
+                          //    | WorkFlow
+                          //    ul.skill
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //              | Git
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //              | Gulp
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //              | WebPack
+                          //        li.skill__item
+                          //            svg.circles(viewbox='0 0 110 110')
+                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                          //
+                          //            .skill__item__name
+                          //              | Bower
         section.map
             .contacts
                 .title.title_mod
