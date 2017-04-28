@@ -118,7 +118,7 @@ $bz2-color : #009688;
     position: relative;
     margin: 20px;
     padding-left: 30px;
-    &::before {
+    &:before {
       content: "";
       display: inline-block;
       position: absolute;
@@ -126,12 +126,15 @@ $bz2-color : #009688;
       height: 20px;
       left: 0;
       background-color: #fff;
+
+    }
+    &__radio:before{
       border-radius: 50%;
     }
-
-
+    &__chec:before{
+      border-radius: 4px;
+    }
   }
-
 }
 .usercart{
   width: 380px;
@@ -527,7 +530,6 @@ $bz2-color : #009688;
   transition: all 1s;
 }
 
-
 .skill {
   display: flex;
   &__item {
@@ -546,7 +548,6 @@ $bz2-color : #009688;
     }
   }
 }
-
 
 .map{
   position: relative;
