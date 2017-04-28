@@ -31,7 +31,8 @@ $.gulp.task('default', $.gulp.series(
     'copy:image',
     'css:foundation',
     // 'sprite:svg',
-    'copy:fonts'
+    'copy:fonts',
+    'copy:userfiles'
   ),
   $.gulp.parallel(
     'watch',
