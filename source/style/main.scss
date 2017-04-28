@@ -237,7 +237,7 @@ $bz2-color : #009688;
   }
 
   &__menu{
-    background: rgba(#00bfa5,.6);
+    background: rgba($bz-color,1);
     border-radius: 0 0 4px 4px;
     &__list{
       width: 380px;
@@ -258,7 +258,7 @@ $bz2-color : #009688;
         }
 
         &:hover{
-          background-color: rgba(#008A7E,.7);
+          background-color: rgba($bz2-color,.85);
         }
         &__link{
           display: block;
@@ -873,7 +873,7 @@ $bz2-color : #009688;
         border-radius: 0 0 4px 0;
       }
       &:hover{
-        background: rgba($bz2-color,.3);
+        background: rgba($bz2-color,1);
       }
     }
   }
