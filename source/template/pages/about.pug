@@ -14,7 +14,7 @@ block content
                                 i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
             .menu__hamburger
                 span
-            .usercart.usercart_fon
+            .usercart.usercart_fon.usercart_phone
                 .usercart-info.usercart-info__mod
                     img(src="/assets/img/me.jpg").usercart__photo
                     .usercart-info__name
@@ -25,127 +25,53 @@ block content
                 a.arrow__a(href="#")
                     i(class='fa fa-chevron-down fa-2x down-arrow__icon' aria-hidden='true')
 
-        section.about.clearfix
+        .about.clearfix
             .about__left
                 svg(
                 viewbox="0 0 1000 100"
                 preserveAspectRatio="none"
-                class="triangle triangle_col-ser")
+                class="triangle triangle_left")
                     polygon(points="0,0 0,100 1000,100")
-                .user-about
-                    .title.title-about
-                        h2.header_text Обо мне
-                    .user-about__right
-                        .user-about__picture
-                            img(src="/assets/img/I.jpg").picture
-                        .user-about__title
-                            .title.title_sub
-                                | Кто я
-                        .user-about__text
-                            p.user-about__text__content Я веб разработчик из Воронежа. Мне 26 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                            p.user-about__text__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я обновлю в нём весь контент.
             .about__right
                 svg(
                 viewbox="0 0 1000 100"
                 preserveAspectRatio="none"
-                class="triangle triangle_col-ser")
+                class="triangle triangle_col-ser triangle_col-ser_main")
                     polygon(points="0,100 1000,100 1000,0")
-                .about-data
-                    .about-data__description.about-user-info
-                        .title.about-user-info__title
-                            h2 Чем я могу быть
-                            | вам полезен
-                        .about-user-info__text
-                            p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачина Backend. Но давайте по порядку.
-                    .about-data__content
-                      ul.skills
-                          each skill in skills
-                              each skillsArray, skillName in skill
-                                  li.skills__item= skillName
-                                      ul.skill
-                                          each skillTitle in skillsArray
-                                              li.skill__item
-                                                  svg.circles(viewbox='0 0 110 110')
-                                                      circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                                                      circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                                                  .skill__item__name= skillTitle
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //                | CSS3
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //              | JavaScript & JQuery
-                          //li.skills__item
-                          //    | Backend
-                          //    ul.skill
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //              | PHP
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //
-                          //                | MySQL
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //              | Node.js & npm
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //              | Mongo.db
-                          //li.skills__item
-                          //    | WorkFlow
-                          //    ul.skill
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //              | Git
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //              | Gulp
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //              | WebPack
-                          //        li.skill__item
-                          //            svg.circles(viewbox='0 0 110 110')
-                          //                circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
-                          //                circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
-                          //
-                          //            .skill__item__name
-                          //              | Bower
+        section.about__user
+            .about__user__info
+                .title.about__user__info__title
+                    h2.about__user__info__header__text Обо мне
+                .about__user__info__right
+                    .about__user__info__picture
+                        img(src="/assets/img/I.jpg").about__user__info__picture
+                    .about__user__info__title
+                        .title.about__user__info__title_sub
+                            | Кто я
+                    .about__user__info__text
+                        p.about__user__info__text__content Я веб разработчик из Воронежа. Мне 26 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                        p.about__user__info__text__content Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я обновлю в нём весь контент.
+
+            .about__user__data
+                .about__user__data__description
+                    .title.about__user__data__description__title
+                        h2 Чем я могу быть
+                        | вам полезен
+                    .about__user__data__description__text
+                        p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачина Backend. Но давайте по порядку.
+                .about__user__data__content
+                  ul.skills
+                      each skill in skills
+                          each skillsArray, skillName in skill
+                              li.skills__item= skillName
+                                  ul.skill
+                                      each skillTitle in skillsArray
+                                          li.skill__item
+                                              svg.circles(viewbox='0 0 110 110')
+                                                  circle.circle__first(r='45', cx='50%', cy='50%', fill='none')
+                                                  circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
+                                              .skill__item__name= skillTitle
+
         section.map
             .contacts
                 .title.title_mod

@@ -3,12 +3,12 @@ mixin title (title, url, additionClass)
 
 mixin footer
   footer.footer.footer-main
-    .footer__row
+    .footer__row.clearfix
       .footer__left
-        ul.nav-menu
+        ul.footer__left__nav-menu
           each item in [{name:'Мои работы', link:'works'}, {name:'Обо мне', link:'about'}, {name:'Блог', link:'blog'}, {name:'Авторизация', link:'#'}]
-            li.nav-menu__item
-              a(href=`${item.link}.html`).nav-menu__link= item.name
+            li.footer__left__nav-menu__item
+              a(href=`${item.link}.html`).footer__left__nav-menu__link= item.name
       .footer__right
         .soclinks__footer
           ul.soclinks__list
@@ -16,8 +16,7 @@ mixin footer
               li.soclinks__list__item.soclinks__list__item_footer
                 a(href=`${item.link}` target='_blank').soclinks__list__item__link.soclinks__list__item__link_footer
                   i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
-
-    .footer__row.footer__row_hr
+    .footer__row.footer__row_hr.clearfix
       .footer__left
         .footer__about
           | Я веб-разработчик из Воронежа, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.

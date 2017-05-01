@@ -11,6 +11,12 @@ $bz2-color : #009688;
     clear: both;
   }
 }
+html{
+
+  @include tablets{
+    font-size: 14px;
+  }
+}
 //header------------------------
 .gsection{
   height: 100vh;
@@ -20,7 +26,6 @@ $bz2-color : #009688;
 }
 
 .wrapper {
-  min-width:796px;
   &_mod:after{
     height: 0px !important;
   }
@@ -42,16 +47,25 @@ $bz2-color : #009688;
 .buttonauth{
   position: absolute;
   top: 20px;
-  right: 100px;
+  right: 20px;
+  width: 180px;
+  height: 45px;
   border: 1px solid #fff;
   border-radius: 4px;
+  text-align: center;
+  line-height: 43px;
   &__link{
     display: block;
-    padding: 10px 20px;
+    width: 100%;
+    height: 100%;
+    transition: .3s;
     &:hover{
       background-color: #fff;
       color: $bz-color;
     }
+  }
+  @include tablets {
+    @include centered(x)
   }
 }
 .flex{
@@ -141,6 +155,10 @@ $bz2-color : #009688;
   height: 420px;
   border-radius: 4px 4px 0 0;
   @include centered()
+  @include phones{
+    @include centered(x)
+    top: 80px;
+  }
   &__rotate{
     position: relative;
     transform-style: preserve-3d;
@@ -235,6 +253,12 @@ $bz2-color : #009688;
       color: #ffffff;
     }
   }
+  &_phone{
+    @include phones{
+      @include centered(x)
+      top: 100px;
+    }
+  }
 
   &__menu{
     background: rgba($bz-color,1);
@@ -248,6 +272,7 @@ $bz2-color : #009688;
         border-right:solid 2px rgba(#dee3e7,.5);
         flex-grow: 1;
         text-align: center;
+        transition: .3s;
 
         &:last-child{
           border-right: 0px;
@@ -274,9 +299,13 @@ $bz2-color : #009688;
     margin: 19px 25px;
   }
   &__mod{
-    position: relative;
+    position: absolute;
     top: 30px;
     left: 30px;
+    @include phones{
+      top: 10px;
+      left: 10px;
+    }
   }
   &__list__item{
     display: inline-block;
@@ -294,6 +323,9 @@ $bz2-color : #009688;
         &:hover{
           background: #ffffff;
           color: rgba(#000,0.5);
+        }
+        @include phones{
+          font-size: 14px;
         }
       }
       &_colbr{
@@ -325,14 +357,14 @@ $bz2-color : #009688;
     content: "";
     position: absolute;
     left: 0;
-    top: -11px;
+    top: 13px;
   }
 
   span {
     position: relative;
     display: block;
     &:after{
-      top: 11px;
+      top: 26px;
     }
   }
 
@@ -346,6 +378,10 @@ $bz2-color : #009688;
     backface-visibility: hidden;
     border-radius: 2px;
     }
+  @include phones{
+    top: 10px;
+    right: 10px;
+  }
 }
 //header-end------------------------
 
@@ -359,27 +395,66 @@ $bz2-color : #009688;
   width: 100%;
   height: 50px;
   margin-top: -50px;
+  z-index: 1;
+  background-color: rgba(#373e42, 0.85);
+  @include tablets{
+    height: 100px;
+    margin-top: -100px;
+  }
   &-main{
     height: 150px;
     margin-top: -150px;
-    background-color: rgba(#373e42, 0.85);
   }
   &__row{
     clear: both;
+
     &_hr{
       border-top: solid rgba(#fff,.5) 1px;
       font-family: "Roboto Light";
+
     }
   }
   &__left{
     float: left;
     width: 50%;
     text-align: left;
+    @include tablets{
+      width: 100%;
+      text-align: center;
+    }
+
+    &__nav-menu{
+      margin: 30px 25px;
+      @include tablets{
+        margin:30px 25px 0;
+      }
+      @include phones{
+        margin:30px 0 0;
+      }
+      &__item{
+        display: inline-block;
+        margin: 5px;
+        @include tablets{
+          margin: 0 17px;
+        }
+        @include phones{
+          margin:0 5px;
+          font-size: 13px;
+        }
+      }
+      &__link:hover{
+        color: #00C19F;
+      }
+    }
   }
   &__right{
     float: right;
     width: 50%;
     text-align: right;
+    @include tablets{
+      width: 100%;
+      text-align: center;
+    }
   }
   &__about{
     color: rgba(#fff,.5);
@@ -389,24 +464,18 @@ $bz2-color : #009688;
     text-align: right;
     color: rgba(#fff,.5);
     margin: 10px 25px;
+    @include tablets{
+      text-align: center;
+    }
   }
   .copyright{
+    font-family:"Roboto Light";
     padding-top: 14px;
     text-align: center;
     color: #ffffff;
   }
 }
 
-.nav-menu{
-  margin: 30px 25px;
-  &__item{
-    display: inline-block;
-    margin: 5px;
-  }
-  &__link:hover{
-    color: #00C19F;
-  }
-}
 //footer end---------------------------------
 
 //about-------------------------------------
@@ -417,7 +486,6 @@ $bz2-color : #009688;
 
 .about{
   display: flex;
-  background: #F0EBDD;
 }
 .about__left, .about__right {
   float: left;
@@ -430,8 +498,16 @@ $bz2-color : #009688;
   height: 100px;
   width: 100%;
   fill: #fff;
+  &_left{
+    fill: #efeee9;
+  }
   &_col-ser{
     fill: #F0EBDD;
+    &_main{
+      @include tablets{
+        fill: #efeee9;
+      }
+    }
   }
 }
 .title {
@@ -449,15 +525,12 @@ $bz2-color : #009688;
   &_auth{
     padding: 40px 80px;
   }
-  &-about{
+  &.about__user__info__title{
     background: url(../img/about_header.png);
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
 
-    .header_text{
-      font-size: 63px;
-    }
   }
   &_mod{
     padding:10px 80px;
@@ -484,33 +557,66 @@ $bz2-color : #009688;
     left: $margin;
   }
 }
-.user-about, .about-data{
+
+.about__user{
+  display: flex;
   text-align: center;
-}
-.user-about__right{
-  margin-top: 20px;
+  background-color: #F0EBDD;
+  @include tablets{
+    flex-wrap: wrap;
+  }
+  &__info{
+    flex-grow: 1;
+    background: #efeee9;
+    width: 50%;
+    @include tablets{
+      width: 100%;
+    }
+    &__header__text{
+      font-size: 63px;
+    }
+
+    &__picture{
+      width: 320px;
+      margin: 0 auto;
+      @include phones{
+        width: 100%;
+      }
+    }
+
+  }
+
+  &__data{
+    flex-grow: 1;
+    width: 50%;
+    @include tablets{
+      width: 100%;
+    }
+    &__content{
+      margin-top: 20px;
+    }
+  }
 }
 
-.picture{
-  width: 320px;
-}
-
-.user-about__text, .about-user-info__text{
+.about__user__info__text, .about__user__data__description__text{
   word-wrap: break-word;
-  margin: 0 50px 20px;
+  margin: 0 30px 20px;
   text-align: left;
   line-height: 24px;
   overflow: hidden;
 }
 
-.skills{
+.skills {
   text-align: left;
-  margin: 0 50px;
-}
-.skills__item{
-  font-family:"Roboto Medium";
-  font-size: 28px;
-  margin: 20px 0;
+  margin-left: 30px;
+  @include tablets{
+    text-align: center;
+  }
+  &__item {
+    font-family: "Roboto Medium";
+    font-size: 28px;
+    margin: 40px 0;
+  }
 }
 
 .circles {
@@ -521,17 +627,24 @@ $bz2-color : #009688;
   fill: none;
   stroke-width: 15;
 }
-.circle__first {
-  stroke: #dfdcd5;
-}
-.circle__second {
-  stroke: #1bb696;
-  stroke-dasharray: .0010 282.6;
-  transition: all 1s;
+.circle {
+  &__first {
+    stroke: #dfdcd5;
+  }
+
+  &__second {
+    stroke: #1bb696;
+    stroke-dasharray: .0010 282.6;
+    transition: all 1s;
+  }
 }
 
 .skill {
   display: flex;
+  flex-wrap: wrap;
+  @include tablets{
+    justify-content: center;
+  }
   &__item {
     width: 110px;
     height: 110px;
@@ -540,7 +653,7 @@ $bz2-color : #009688;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    margin: 15px;
+    margin: 15px 0 0 15px;
     padding: 0 20px;
     text-align: center;
     &__name{
@@ -562,6 +675,10 @@ $bz2-color : #009688;
   border-radius: 4px;
   background-color: rgba(#fcfcfc,0.85);
   text-align: center;
+  @include phones{
+    @include centered(x);
+    top: 0;
+  }
   &__info{
     text-align: left;
     margin-left: 20px;
@@ -820,15 +937,13 @@ $bz2-color : #009688;
   padding-bottom: 160px;
   &__title{
     text-align: center;
-  }
-}
-.contform__title{
-  padding: 10px 60px;
-  &:before{
-    left: 20px;
-  }
-  &:after{
-    right: 20px;
+    padding: 10px 60px;
+    &:before{
+      left: 20px;
+    }
+    &:after{
+      right: 20px;
+    }
   }
 }
 
