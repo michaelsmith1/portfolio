@@ -1,0 +1,77 @@
+.form{
+  &__auth {
+    font-family: Roboto-Regular;
+    padding-bottom: 30px;
+  }
+
+  &__input_main{
+    padding-left: 15px 15px 15px 60px;
+  }
+
+  &__lblmain{
+    font-family: FontAwesome;
+    position: absolute;
+    left: 20px;
+    line-height: 48px;
+    color: #c4cbcd;
+    width: 50px;
+    background-color: #f0efe9;
+    border-radius: 6px 0 0 6px;
+
+    &_login:after{
+      content: '\f007';
+    }
+    &_pswrd:after{
+      content: '\f084';
+    }
+  }
+
+  &__you{
+    font-weight: bold;
+    margin: 10px;
+  }
+}
+
+.form__lbl {
+  position: relative;
+  margin-left: 25px;
+  cursor: pointer;
+}
+.form__chec {
+  display: none;
+}
+.form__lbl:before{
+  content:'';
+  position: absolute;
+  font-family: "FontAwesome";
+  line-height: 20px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin: -3px 0px 0px -25px;
+  background-color: #fff;
+  color: #ccc;
+  border: 1px solid #ccc;
+}
+.form__lbl__chec:before{
+  border-radius:6px;
+}
+.form__lbl__radio:before{
+  border-radius: 50%;
+}
+.form__chec_chel:checked + .form__lbl__chec:before {
+  content: "\f14a";
+  color: #00bfa5;
+  font-size:24px;
+}
+.form__chec__radio:checked + .form__lbl__radio:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: 31px;
+  width: 10px;
+  height: 10px;
+  background-color:#00bfa5;
+  border-radius: 50%;
+}

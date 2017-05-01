@@ -37,15 +37,15 @@ block content
                 label.form__lblmain.form__lblmain_pswrd
                 input.form__input.form__input_main(placeholder='Пароль' type='password' name='password')
                 label.form__lbl.form__lbl__chec
-                  input.form__chec.form__chec_chel(type='checkbox' name='chel' required='required')
-                  | Я человек
+                input.form__chec.form__chec_chel(type='checkbox' name='chel' required='required')
+                | Я человек
                 .form__you Вы точно не робот?
                 label.form__lbl.form__lbl__radio
-                  input.form__chec.form__chec__radio(type='radio' name='da')
-                  | Да
+                input.form__chec.form__chec__radio(type='radio' name='da')
+                | Да
                 label.form__lbl.form__lbl__radio
-                  input.form__chec.form__chec__radio(type='radio' name='no')
-                  | Не уверен
+                input.form__chec.form__chec__radio(type='radio' name='no')
+                | Не уверен
             .usercart__menu
               ul.usercart__menu__list
                 each mnu in [{name: 'На главную', link: '#'}, {name: 'Войти', link: '#'}]

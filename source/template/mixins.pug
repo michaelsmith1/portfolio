@@ -1,5 +1,14 @@
-mixin title (title, url, additionClass)
-  .title(style=`background-image: url('img/${url}')` class=additionClass)= title
+mixin menu
+  .menu__hamburger
+    a(href='#menu' id='hamburger' class='menu__hamburger__link')
+      span
+
+  .navigation.js-navigation
+    nav.main-menu(id='menu')
+      ul.main-menu__list
+        each item in [{name:'Мои работы', link:'works.html'}, {name:'Обо мне', link:'about.html'}, {name:'Блог', link:'blog.html'}, {name:'Авторизация', link:'index.html'}]
+          li.main-menu__list__item
+            a(href=`${item.link}`).main-menu__list__item__link= item.name
 
 mixin footer
   footer.footer.footer_main
