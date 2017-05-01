@@ -4,7 +4,7 @@
       "Frontend" : ["HTML5", "CSS3", "JavaScript & JQuery"]
     },
     {
-      "Backend" : ["PHP", "MySQL", "Node.js & npm","Mongo.db"]
+      "Backend" : ["PHP", "MySQL", "Node.js & npm","Mongo.db","WordPress","ModX"]
     },
     {
       "WorkFlow" : ["Git", "Gulp", "Bower"]

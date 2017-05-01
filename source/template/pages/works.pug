@@ -40,29 +40,29 @@ block content
         section.works
             .title.works__header
                 h1.works__header__text Мои работы
+
             .works__slider
                 .works__slider__info
-                    .title.works__slider__info__title Сайт строительной компании
-                    .works__slider__info__desc Html, css, Javascript, Wordpress
-                    .works__slider__info__but
-                        a.works__slider__info__but__link(href='#')
-                            | Помотреть сайт
-                .works__slider__photoprev
-                    .works__slider__photo__wiev
+                    .works__slider__info__container
+                        .title.works__slider__info__container__title Сайт строительной компании
+                        .works__slider__info__container__desc Html, css, Javascript, Wordpress
+                        .works__slider__info__container__but
+                            a.works__slider__info__container__but__link(href='#')
+                                | Помотреть сайт
+                .works__slider__photo
                         img.works__slider__photo__img(src='assets/userfiles/Untitled-1.png')
-                    .works__slider__photo__control
-                        .works__slider__photo__control__arrow
-                            img.works__slider__photo__control__arrow__img(src='assets/userfiles/mockup.png')
-                            a.works__slider__photo__control__arrow__arrow.works__slider__photo__control__arrow_prev(href='#' title='prev_slider' alt='prev_slider')
-                        .works__slider__photo__control__arrow
-                            img.works__slider__photo__control__arrow__img(src='assets/userfiles/Mockup2.png')
-                            a.works__slider__photo__control__arrow__arrow.works__slider__photo__control__arrow_next(href='#' title='next_slider' alt='next_slider')
+                .works__slider__control
+                        .works__slider__control__arrow
+                            img.works__slider__control__arrow__img(src='assets/userfiles/mockup.png')
+                            a.works__slider__control__arrow__arrow.works__slider__control__arrow_prev(href='#' title='prev_slider' alt='prev_slider')
+                        .works__slider__control__arrow
+                            img.works__slider__control__arrow__img(src='assets/userfiles/Mockup2.png')
+                            a.works__slider__control__arrow__arrow.works__slider__control__arrow_next(href='#' title='next_slider' alt='next_slider')
 
 
         section.aboutme
-            .title.title-about.title-aboutme
-                | Что обо мне
-                <br> говорят
+            .title.title-about.title-aboutme.about__user__info__title
+                | Что обо мне говорят
             .container__feed
                 .feedbacks.clearfix
                     .feedbacks__item
@@ -97,8 +97,8 @@ block content
                         input(placeholder='Email' type='mail').form__input
                         textarea(placeholder='Ваше сообщение' rows='5').form__input.form__text
                         .form__menu
-                            input(type='submit' name='kdddddd').form__menu__input.form__submit
-                            input(type='submit').form__menu__input.form__clear
+                            input(type='submit' value='Отправить').form__menu__input.form__submit
+                            input(type='submit' value='Очистить').form__menu__input.form__clear
             .arrow.up_arrow
                 a.arrow__a(href="#")
                     i(class='fa fa-chevron-up fa-2x down-arrow__icon' aria-hidden='true')

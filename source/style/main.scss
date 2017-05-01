@@ -23,6 +23,9 @@ html{
 }
 .bsection{
   height: 60vh;
+  @include phones{
+    height: 100vh;
+  }
 }
 
 .wrapper {
@@ -320,6 +323,7 @@ html{
         padding: 9px;
         margin: 0 5px;
         color: rgba(#ffffff,0.5);
+        transition: .3s;
         &:hover{
           background: #ffffff;
           color: rgba(#000,0.5);
@@ -393,20 +397,21 @@ html{
 .footer{
   position: relative;
   width: 100%;
-  height: 50px;
   margin-top: -50px;
   z-index: 1;
-  background-color: rgba(#373e42, 0.85);
+
   @include tablets{
-    height: 100px;
-    margin-top: -100px;
+
+    margin-top: -220px;
   }
-  &-main{
+  &_main{
     height: 150px;
     margin-top: -150px;
+
   }
   &__row{
     clear: both;
+    background-color: rgba(#373e42, 0.85);
 
     &_hr{
       border-top: solid rgba(#fff,.5) 1px;
@@ -611,6 +616,7 @@ html{
   margin-left: 30px;
   @include tablets{
     text-align: center;
+    margin: 0;
   }
   &__item {
     font-family: "Roboto Medium";
@@ -728,14 +734,17 @@ html{
 }
 
 .container{
-  width: 1270px;
-  margin: 50px auto;
+  width: 100%px;
+  margin: 10px auto;
 }
 
 .blog{
   font-family:Roboto-Regular;
   &__menu{
     width: 25%;
+    @include tablets{
+      display: none;
+    }
     &__list__link{
       padding: 18px;
       margin: 15px;
@@ -750,6 +759,9 @@ html{
   }
   &__contain{
     width: 75%;
+    @include tablets{
+      width: 100%;
+    }
     &__list{
       width: 80%;
       margin: 0 auto;
@@ -800,82 +812,124 @@ html{
   &__slider{
     background-color: #f0efe9;
     display: flex;
-    align-items: center;
+    flex-flow: column wrap;
+    align-items: stretch;
     margin-bottom: 20px;
-    justify-content:space-between;
+    min-height:650px;
+    height: 100vh;
+    @include tablets{
+      flex-wrap: nowrap;
+      height: auto;
+    }
 
     &__info{
-      flex-grow: 1;
-      &__desc{
-        color: $bz-color;
-        max-width: 420px;
-        border-top:1px solid rgba($bz2-color,.3);
-        border-bottom:1px solid rgba($bz2-color,.3);
-        line-height: 50px;
-        margin: 0 auto 40px;
-        text-transform: uppercase;
+      height: 100%;
+      display: flex;
+      background-color: #ebefe2;
+      width: 50%;
+      @include  tablets{
+        width: 100%;
       }
-
-      &__but{
+      &__container {
         margin:auto;
-        width: 200px;
+        @include tablets{
+          margin-bottom: 50px;
 
-        &__link{
-          display: block;
-          line-height: 45px;
-          background-color: $bz-color;
-          border-radius: 4px;
-          transition: .5s;
-          &:before{
-            content: '\f0c1';
-            font: normal normal normal 16px/1 FontAwesome;
-            margin: 10px;
-          }
-          &:hover{
-            background-color: $bz2-color;
+        }
+
+        &__desc {
+          color: $bz-color;
+          max-width: 420px;
+          border-top: 1px solid rgba($bz2-color, .3);
+          border-bottom: 1px solid rgba($bz2-color, .3);
+          line-height: 50px;
+          margin: 0 auto 40px;
+          text-transform: uppercase;
+        }
+
+        &__but {
+          margin: auto;
+          width: 200px;
+
+          &__link {
+            display: block;
+            line-height: 45px;
+            background-color: $bz-color;
+            border-radius: 4px;
+            transition: .5s;
+            &:before {
+              content: '\f0c1';
+              font: normal normal normal 16px/1 FontAwesome;
+              margin: 10px;
+            }
+            &:hover {
+              background-color: $bz2-color;
+            }
           }
         }
       }
     }
 
     &__photo {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
+      max-height: 100%;
+      flex: 3;
+      width: 50%;
+      @include tablets{
+        order:-1;
+        width: 100%;
+      }
 
       &__img{
-        padding: 100px 70px;
-        max-width:600px;
-        max-height: 500px;
+        width: 100%;
+        padding: 68px 50px;
+        max-width:700px;
+        max-height: 600px;
+        @include tablets{
+          padding: 50px 0 0 0;
+        }
       }
-      &__control {
-        display: flex;
-        justify-content: space-between;
-        &__arrow {
-          flex-grow: 1;
-          position: relative;
 
-          &__arrow{
-            position: absolute;
-            background: rgba(#888372,.5);
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            &:before{
+    }
 
-              font: normal normal normal 30px/1 FontAwesome;
-              @include centered();
-              text-shadow: 0px 2px 2px #000 ;
-            }
-          }
+    &__control {
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
+      flex: 1;
+      width: 50%;
+      @include  tablets{
+        width: 100%;
+      }
+      &__arrow {
+        flex-grow: 1;
+        position: relative;
 
-          &_prev:before{
-            content: '\f078';
+        &__arrow{
+          position: absolute;
+          background: rgba(#888372,.5);
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          &:before{
+
+            font: normal normal normal 30px/1 FontAwesome;
+            @include centered();
+            text-shadow: 0px 2px 2px #000 ;
           }
-          &_next:before{
-            content: '\f077';
-          }
+        }
+
+        &__img{
+          max-width: 100%;
+          max-height: 100%;
+
+        }
+
+        &_prev:before{
+          content: '\f078';
+        }
+        &_next:before{
+          content: '\f077';
         }
       }
     }
@@ -899,6 +953,9 @@ html{
 .container__feed{
   width: 70%;
   margin: 0 auto 50px;
+  @include  tablets{
+    width: 100%;
+  }
 }
 
 .feedbacks__item{
@@ -906,11 +963,17 @@ html{
   width: 50%;
   text-align: left;
   padding: 0 20px;
+  @include phones{
+    width: 100%;
+  }
   &__link{
     margin: 15px 0;
   }
   &__icon{
     color: rgba(#373e42,.2);
+    @include phones{
+      text-align: center;
+    }
   }
   &__profile__info{
     padding: 25px;
