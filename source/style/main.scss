@@ -22,7 +22,7 @@ html{
   height: 100vh;
 }
 .bsection{
-  height: 60vh;
+  height: 80vh;
   @include phones{
     height: 100vh;
   }
@@ -40,7 +40,7 @@ html{
   }
 
   &-welcome {
-    font-family: 'Roboto Medium';
+    //font-family: 'Roboto Medium';
     background: url(../img/bg.jpg);
     background-size: cover;
     position: relative;
@@ -71,11 +71,7 @@ html{
     @include centered(x)
   }
 }
-.flex{
-  display: flex;
-  justify-content: center;
-  //align-items: center;
-}
+
 //.form__chec__radio:checked + label:before {
 //  content: "\2022";
 //  color: #f3f3f3;
@@ -156,7 +152,6 @@ html{
 .usercart{
   width: 380px;
   height: 420px;
-  border-radius: 4px 4px 0 0;
   @include centered()
   @include phones{
     @include centered(x)
@@ -210,6 +205,7 @@ html{
   }
   &-info{
     text-align: center;
+    border-radius: 4px 4px 0 0;
 
     &_blog{
       padding-bottom: 70px;
@@ -217,7 +213,7 @@ html{
       background-repeat: no-repeat;
     }
 
-    &__mod p{
+    &__mod{
       color: #fff;
     }
     &__name{
@@ -227,12 +223,14 @@ html{
       }
     }
     &__description{
-      font-family: Roboto;
-      color: rgba(#455a64, .8);
-      font-weight: 300;
+      font-family: Roboto-Light;
+      color: rgba(#fff, .8);
       &_norm{
-        color: #fff;
+        font-family: Roboto-Regular;
         font-weight: normal;
+      }
+      &_col-ser{
+        color: rgba(#455a64, .8);
       }
     }
     &_fon{
@@ -415,7 +413,7 @@ html{
 
     &_hr{
       border-top: solid rgba(#fff,.5) 1px;
-      font-family: "Roboto Light";
+      font-family: Roboto-Light;
 
     }
   }
@@ -474,7 +472,7 @@ html{
     }
   }
   .copyright{
-    font-family:"Roboto Light";
+    font-family: Roboto-Light;
     padding-top: 14px;
     text-align: center;
     color: #ffffff;
@@ -517,7 +515,7 @@ html{
 }
 .title {
   color: $main-font-color;
-  font-family:'BERNIER Regular';
+  font-family: BERNIERRegular;
   font-size:35px;
   padding: 45px 80px;
   display: inline-block;
@@ -604,6 +602,7 @@ html{
 }
 
 .about__user__info__text, .about__user__data__description__text{
+  font-family: Roboto-Regular;
   word-wrap: break-word;
   margin: 0 30px 20px;
   text-align: left;
@@ -619,7 +618,7 @@ html{
     margin: 0;
   }
   &__item {
-    font-family: "Roboto Medium";
+    //font-family: Roboto-Medium;
     font-size: 28px;
     margin: 40px 0;
   }
@@ -703,7 +702,7 @@ html{
       }
       &__link{
         color: rgba(#455a64,.8);
-        font-family: "Roboto Medium";
+        font-family: Roboto-Medium;
         margin: 20px;
         &:hover{
           color: rgba(#455a64,1);
@@ -739,7 +738,7 @@ html{
 }
 
 .blog{
-  font-family:Roboto-Regular;
+  font-family: Roboto-Regular;
   &__menu{
     width: 25%;
     @include tablets{
@@ -752,8 +751,7 @@ html{
       &.link_active{
         border-right:3px solid #00bfa5;
         color: #00bfa5;
-        font-family:Roboto;
-        font-weight:bold;
+        font-family: Roboto-Bold;
       }
     }
   }
@@ -777,7 +775,7 @@ html{
     }
   }
   &__title{
-    font-family:"BERNIER Regular";
+    font-family: BERNIERRegular;
     font-size: 35px;
     margin: 20px 0;
   }
@@ -911,8 +909,11 @@ html{
           height: 100%;
           left: 0;
           top: 0;
+          transition: .3s;
+          &:hover{
+            background: rgba(#888372,.3);
+          }
           &:before{
-
             font: normal normal normal 30px/1 FontAwesome;
             @include centered();
             text-shadow: 0px 2px 2px #000 ;
@@ -959,6 +960,7 @@ html{
 }
 
 .feedbacks__item{
+  font-family: Roboto-Regular;
   float: left;
   width: 50%;
   text-align: left;
