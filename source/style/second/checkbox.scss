@@ -1,14 +1,29 @@
-.form{
+@keyframes tick {
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+.form {
   &__auth {
     font-family: Roboto-Regular;
+    color: rgba(#455a64, .8);
     padding-bottom: 30px;
   }
 
-  &__input_main{
+  &__input_main {
     padding-left: 15px 15px 15px 60px;
   }
 
-  &__lblmain{
+  &__lblmain {
     font-family: FontAwesome;
     position: absolute;
     left: 20px;
@@ -18,60 +33,68 @@
     background-color: #f0efe9;
     border-radius: 6px 0 0 6px;
 
-    &_login:after{
+    &_login:after {
       content: '\f007';
     }
-    &_pswrd:after{
+    &_pswrd:after {
       content: '\f084';
     }
   }
 
-  &__you{
-    font-weight: bold;
+  &__you {
+    font-family: Roboto-Bold;
     margin: 10px;
+  }
+
+  &__lbl {
+    position: relative;
+    margin-left: 25px;
+    cursor: pointer;
+  }
+  &__chec {
+    display: none;
+
+    &_s {
+      user-select: none;
+
+      &:before {
+        content: '';
+        position: absolute;
+        font-family: "FontAwesome";
+        line-height: 20px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        margin: -3px 0px 0px -25px;
+        background-color: #fff;
+        color: #ccc;
+        border: 1px solid #ccc;
+      }
+    }
+    &_chel_s:before {
+      border-radius: 6px;
+    }
+    &__radio_s:before {
+      border-radius: 50%;
+    }
   }
 }
 
-.form__lbl {
-  position: relative;
-  margin-left: 25px;
-  cursor: pointer;
-}
-.form__chec {
-  display: none;
-}
-.form__lbl:before{
-  content:'';
-  position: absolute;
-  font-family: "FontAwesome";
-  line-height: 20px;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  margin: -3px 0px 0px -25px;
-  background-color: #fff;
-  color: #ccc;
-  border: 1px solid #ccc;
-}
-.form__lbl__chec:before{
-  border-radius:6px;
-}
-.form__lbl__radio:before{
-  border-radius: 50%;
-}
-.form__chec_chel:checked + .form__lbl__chec:before {
+.form__chec_chel:checked + .form__chec_chel_s:before {
   content: "\f14a";
   color: #00bfa5;
   font-size:24px;
+  animation: tick .2s ease-in-out;
 }
-.form__chec__radio:checked + .form__lbl__radio:after {
+.form__chec__radio:checked + .form__chec__radio_s:after {
   content: "";
   display: inline-block;
   position: absolute;
   top: 3px;
-  left: 31px;
-  width: 10px;
-  height: 10px;
+  left: -18px;
+  width: 8px;
+  height: 8px;
   background-color:#00bfa5;
   border-radius: 50%;
+  animation: tick .2s ease-in-out;
 }
