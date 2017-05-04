@@ -1,14 +1,23 @@
-mixin title (title, url, additionClass)
-  .title(style=`background-image: url('img/${url}')` class=additionClass)= title
+mixin menu
+  .menu__hamburger
+    a(href='#menu' id='hamburger' class='menu__hamburger__link')
+      span
+
+  .navigation.js-navigation
+    nav.main-menu(id='menu')
+      ul.main-menu__list
+        each item in [{name:'Мои работы', link:'works.html'}, {name:'Обо мне', link:'about.html'}, {name:'Блог', link:'blog.html'}, {name:'Авторизация', link:'index.html'}]
+          li.main-menu__list__item
+            a(href=`${item.link}`).main-menu__list__item__link= item.name
 
 mixin footer
-  footer.footer.footer-main
-    .footer__row
+  footer.footer.footer_main
+    .footer__row.clearfix
       .footer__left
-        ul.nav-menu
+        ul.footer__left__nav-menu
           each item in [{name:'Мои работы', link:'works'}, {name:'Обо мне', link:'about'}, {name:'Блог', link:'blog'}, {name:'Авторизация', link:'#'}]
-            li.nav-menu__item
-              a(href=`${item.link}.html`).nav-menu__link= item.name
+            li.footer__left__nav-menu__item
+              a(href=`${item.link}.html`).footer__left__nav-menu__link= item.name
       .footer__right
         .soclinks__footer
           ul.soclinks__list
@@ -16,8 +25,7 @@ mixin footer
               li.soclinks__list__item.soclinks__list__item_footer
                 a(href=`${item.link}` target='_blank').soclinks__list__item__link.soclinks__list__item__link_footer
                   i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
-
-    .footer__row.footer__row_hr
+    .footer__row.footer__row_hr.clearfix
       .footer__left
         .footer__about
           | Я веб-разработчик из Воронежа, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.

@@ -4,53 +4,59 @@ block variables
   - var title = 'Страница приветствия'
 
 block content
-  .wrapper.wrapper-welcome.flex
-    section.hero
-      .buttonauth
-        a.buttonauth__link(href='#') Авторизоваться
-      .usercart
-        .usercart__rotate
-          .usercart-info_1
-            .usercart-info.usercart-welcome
-              img(src="/assets/img/me.jpg").usercart__photo
-              .usercart-info__name.usercart-info__name_28px
-                p Михаил Журкин
-              .usercart-info__description.usercart-info__description_norm
-                p Личный сайт веб разработчика
-              .soclinks
-                ul.soclinks__list
-                  each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
-                    li.soclinks__list__item
-                      a(href=`${item.link}` target='_blank').soclinks__list__item__link.soclinks__list__item__link_colbr
-                        i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
-            .usercart__menu
-              ul.usercart__menu__list
-                each mnu in [{name: 'Мои работы', link: 'works'}, {name: 'Обо мне', link: 'about'}, {name: 'Блог', link:'blog'}]
-                  li.usercart__menu__list__item
-                    a.usercart__menu__list__item__link(href=`${mnu.link}.html`)=mnu.name
-          .usercart-info_2
-            .usercart-info.usercart-welcome.usercart_auth
-              .title.title_auth Авторизуйтесь
-              form.form__auth
-                label.form__lblmain.form__lblmain_login
-                input.form__input.form__input_main(placeholder='Логин' type='text' name='login')
-                label.form__lblmain.form__lblmain_pswrd
-                input.form__input.form__input_main(placeholder='Пароль' type='password' name='password')
-                label.form__lbl.form__lbl__chec
-                  input.form__chec.form__chec_chel(type='checkbox' name='chel' required='required')
-                  | Я человек
-                .form__you Вы точно не робот?
-                label.form__lbl.form__lbl__radio
-                  input.form__chec.form__chec__radio(type='radio' name='da')
-                  | Да
-                label.form__lbl.form__lbl__radio
-                  input.form__chec.form__chec__radio(type='radio' name='no')
-                  | Не уверен
-            .usercart__menu
-              ul.usercart__menu__list
-                each mnu in [{name: 'На главную', link: '#'}, {name: 'Войти', link: '#'}]
-                  li.usercart__menu__list__item
-                    a.usercart__menu__list__item__link(href=`${mnu.link}.html`)=mnu.name
+  section.hero
+    .hero__parallax#parallax-mouse
+      each item in ['2','3','4','5','6','7','8','9','10']
+        .hero__parallax__layer
+          img.hero__parallax__layer-img(src=`assets/img/parallax/parallax-${item}.png`)
+    .buttonauth
+      a.buttonauth__link.active-button(href='#' id='authorizationButton') Авторизоваться
+    .usercart
+      .usercart__rotate
+        .usercart-info_1
+          .usercart-info.usercart-welcome
+            img(src="/assets/img/me.jpg").usercart__photo
+            .usercart-info__name.usercart-info__name_28px
+              | Михаил Журкин
+            .usercart-info__description.usercart-info__description_col-ser
+              | Личный сайт веб разработчика
+            .soclinks
+              ul.soclinks__list
+                each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
+                  li.soclinks__list__item
+                    a(href=`${item.link}` target='_blank').soclinks__list__item__link.soclinks__list__item__link_colbr
+                      i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
+          .usercart__menu
+            ul.usercart__menu__list
+              each mnu in [{name: 'Мои работы', link: 'works'}, {name: 'Обо мне', link: 'about'}, {name: 'Блог', link:'blog'}]
+                li.usercart__menu__list__item
+                  a.usercart__menu__list__item__link(href=`${mnu.link}.html`)=mnu.name
+        .usercart-info_2
+          .usercart-info.usercart-welcome.usercart_auth
+            .title.title_auth Авторизуйтесь
+            form.form__auth
+              label.form__lblmain.form__lblmain_login
+              input.form__input.form__input_main(placeholder='Логин' type='text' name='login')
+              label.form__lblmain.form__lblmain_pswrd
+              input.form__input.form__input_main(placeholder='Пароль' type='password' name='password')
+              label.form__lbl.form__lbl__chec
+                input.form__chec.form__chec_chel(type='checkbox' name='chel' required='required')
+                span.form__chec_s.form__chec_chel_s Я человек
+              .form__you Вы точно не робот?
+              label.form__lbl.form__lbl__radio
+                input.form__chec.form__chec__radio(type='radio' name='robot')
+                span.form__chec_s.form__chec__radio_s Да
+              label.form__lbl.form__lbl__radio
+                input.form__chec.form__chec__radio(type='radio' name='robot')
+                span.form__chec_s.form__chec__radio_s Не уверен
+          .usercart__menu
+            ul.usercart__menu__list
+              li.usercart__menu__list__item
+                a.usercart__menu__list__item__link.buttonauth__link_mnu(href='#')
+                  | На главную
+              li.usercart__menu__list__item
+                a.usercart__menu__list__item__link(href='#')
+                  | Войти
   footer.footer
     .copyright
       | © Михаил Журкин | создано с любовью студентом LoftSchool | 2017

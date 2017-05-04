@@ -12,16 +12,18 @@ block content
                         li.soclinks__list__item
                             a(href=`${item.link}`).soclinks__list__item__link.soclinks__list__item__link_colbel
                                 i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
-            .menu__hamburger
-                span
-            .usercart.usercart_blog
+            + menu
+            .usercart.usercart_blog.usercart_phone
                 .usercart-info.usercart-info_mod.usercart-info_blog(style="background-image: url('assets/img/blog_header.png')")
                     img(src="/assets/img/me.jpg").usercart__photo.usercart__photo_blog
                     .usercart-title.title
                         h1.usercart-title-text Блог
                     .usercart-info__description.usercart-info__description_norm
                         | Статьи, которые я написал
-        section.about
+            .arrow.down_arrow
+                a.arrow__a(href="#")
+                    i(class='fa fa-chevron-down fa-2x down-arrow__icon' aria-hidden='true')
+        .about
             .about__left
                 svg(
                 viewbox="0 0 1000 100"

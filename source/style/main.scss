@@ -4,6 +4,7 @@ $bz2-color : #009688;
 
 @import "second/fonts";
 @import "second/mixins";
+@import "second/checkbox";
 .clearfix{
   &:after {
     content: "";
@@ -11,16 +12,24 @@ $bz2-color : #009688;
     clear: both;
   }
 }
+html{
+
+  @include tablets{
+    font-size: 14px;
+  }
+}
 //header------------------------
 .gsection{
   height: 100vh;
 }
 .bsection{
-  height: 60vh;
+  height: 80vh;
+  @include phones{
+    height: 100vh;
+  }
 }
 
 .wrapper {
-  min-width:796px;
   &_mod:after{
     height: 0px !important;
   }
@@ -32,121 +41,57 @@ $bz2-color : #009688;
   }
 
   &-welcome {
-    font-family: 'Roboto Medium';
     background: url(../img/bg.jpg);
     background-size: cover;
     position: relative;
+
   }
 }
 
 .buttonauth{
   position: absolute;
   top: 20px;
-  right: 100px;
-  border: 1px solid #fff;
-  border-radius: 4px;
+  right: 20px;
+  width: 180px;
+  height: 45px;
+  text-align: center;
+  line-height: 43px;
+
   &__link{
     display: block;
-    padding: 10px 20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    transition: .3s;
+    opacity: 0;
     &:hover{
       background-color: #fff;
       color: $bz-color;
     }
+    &.active-button{
+      opacity: 1;
+    }
+  }
+  @include tablets {
+    @include centered(x)
   }
 }
-.flex{
-  display: flex;
-  justify-content: center;
-  //align-items: center;
-}
-//.form__chec__radio:checked + label:before {
-//  content: "\2022";
-//  color: #f3f3f3;
-//  font-size: 30px;
-//  text-align: center;
-//  line-height: 18px;
-//}
 
-.form{
-  &__auth {
-  font-family: Roboto-Regular;
-  padding-bottom: 30px;
-  }
-
-  &__input_main{
-    padding-left: 15px 15px 15px 60px;
-  }
-
-  &__lblmain{
-    font-family: FontAwesome;
-    position: absolute;
-    left: 20px;
-    line-height: 48px;
-    color: #c4cbcd;
-    width: 50px;
-    background-color: #f0efe9;
-
-    &_login:after{
-      content: '\f007';
-    }
-    &_pswrd:after{
-      content: '\f084';
-    }
-  }
-
-  &__chec{
-    display: none;
-    &:checked ~ .form__lbl{
-      content: "";
-      position: absolute;
-      left: 8px;
-      top: 8px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: $bz-color;
-      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.3);
-      z-index: 3;
-    }
-  }
-  &__you{
-    font-weight: bold;
-    margin: 10px;
-  }
-  &__lbl{
-    cursor: pointer;
-    position: relative;
-    margin: 20px;
-    padding-left: 30px;
-    &:before {
-      content: "";
-      display: inline-block;
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      left: 0;
-      background-color: #fff;
-
-    }
-    &__radio:before{
-      border-radius: 50%;
-    }
-    &__chec:before{
-      border-radius: 4px;
-    }
-  }
-}
 .usercart{
   width: 380px;
   height: 420px;
-  border-radius: 4px 4px 0 0;
   @include centered()
+  @include phones{
+    @include centered(x)
+    top: 80px;
+  }
   &__rotate{
     position: relative;
     transform-style: preserve-3d;
     transition: 1s;
     transform: rotateY(0deg);
-    &:hover{
+    &.flip{
       transform: rotateY(180deg);
     }
 
@@ -157,7 +102,6 @@ $bz2-color : #009688;
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    //transform: rotateY(180deg);
   }
   &-info_2{
     width:100%;
@@ -189,6 +133,7 @@ $bz2-color : #009688;
   }
   &-info{
     text-align: center;
+    border-radius: 6px 6px 0 0;
 
     &_blog{
       padding-bottom: 70px;
@@ -196,7 +141,7 @@ $bz2-color : #009688;
       background-repeat: no-repeat;
     }
 
-    &__mod p{
+    &__mod{
       color: #fff;
     }
     &__name{
@@ -206,12 +151,14 @@ $bz2-color : #009688;
       }
     }
     &__description{
-      font-family: Roboto;
-      color: rgba(#455a64, .8);
-      font-weight: 300;
+      font-family: Roboto-Light;
+      color: rgba(#fff, .8);
       &_norm{
-        color: #fff;
+        font-family: Roboto-Regular;
         font-weight: normal;
+      }
+      &_col-ser{
+        color: rgba(#455a64, .8);
       }
     }
     &_fon{
@@ -235,10 +182,16 @@ $bz2-color : #009688;
       color: #ffffff;
     }
   }
+  &_phone{
+    @include phones{
+      @include centered(x)
+      top: 100px;
+    }
+  }
 
   &__menu{
     background: rgba($bz-color,1);
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 6px 6px;
     &__list{
       width: 380px;
       display: flex;
@@ -248,13 +201,14 @@ $bz2-color : #009688;
         border-right:solid 2px rgba(#dee3e7,.5);
         flex-grow: 1;
         text-align: center;
+        transition: .3s;
 
         &:last-child{
           border-right: 0px;
-          border-radius: 0 0 4px;
+          border-radius: 0 0 6px;
         }
         &:first-child{
-          border-radius: 0 0 0 4px;
+          border-radius: 0 0 0 6px;
         }
 
         &:hover{
@@ -274,9 +228,13 @@ $bz2-color : #009688;
     margin: 19px 25px;
   }
   &__mod{
-    position: relative;
+    position: absolute;
     top: 30px;
     left: 30px;
+    @include phones{
+      top: 10px;
+      left: 10px;
+    }
   }
   &__list__item{
     display: inline-block;
@@ -291,9 +249,13 @@ $bz2-color : #009688;
         padding: 9px;
         margin: 0 5px;
         color: rgba(#ffffff,0.5);
+        transition: .3s;
         &:hover{
           background: #ffffff;
           color: rgba(#000,0.5);
+        }
+        @include phones{
+          font-size: 14px;
         }
       }
       &_colbr{
@@ -311,42 +273,119 @@ $bz2-color : #009688;
     }
   }
 }
-.menu__hamburger{
-  cursor: pointer;
-  display: block;
-  position: absolute;
-  top: 40px;
-  right: 30px;
-  width: 40px;
-  height: 30px;
-  z-index: 2;
+//main-menu---------
 
-  span:after,span:before {
-    content: "";
+/* on activation */
+
+.menu{
+
+  &__hamburger{
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    z-index: 9999999;
+
+    &__link{
+      display: block;
+      width: 40px;
+      height: 30px;
+
+      &.on span {
+        background-color: transparent;
+      }
+      &.on span:before {
+        transform: rotate(45deg) translate(5px, 5px);
+        top: 0px;
+      }
+      &.on span:after {
+        transform: rotate(-45deg) translate(7px, -8px);
+        top: 17px;
+      }
+      &.on + #menu {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    span:after,span:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+    }
+
+    span {
+      position: relative;
+      display: block;
+      &:after{
+        top: 26px;
+      }
+    }
+
+    span,
+    span:after,
+    span:before {
+      width: 100%;
+      height: 4px;
+      background-color: #fff;
+      transition: all 0.3s;
+      backface-visibility: hidden;
+      border-radius: 2px;
+    }
+    @include phones{
+      top: 10px;
+      right: 10px;
+    }
+  }
+}
+//main-menu-end--------
+.hero{
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  overflow: hidden;
+  position: relative;
+  &__parallax{
     position: absolute;
     left: 0;
-    top: -11px;
-  }
-
-  span {
-    position: relative;
-    display: block;
-    &:after{
-      top: 11px;
+    top: 0;
+    height: 100%;
+    width: 120%;
+    z-index: -1;
+    background: url(../img/parallax/fon.png) no-repeat;
+    background-size: cover;
+    background-position: center top;
+    &__layer{
+      position: fixed;
+      width:110%;
+      height: 110%;
+      top: 50%;
+      left: 50%;
+      margin-left: -55%;
+      margin-top: -15%;
+      @include tablets{
+        top: 10%;
+        margin-top: -10%;
+      }
+      @include phones{
+        top: 0;
+        margin-top: -10%;
+      }
+      &-img{
+        position: absolute;
+        max-width:100%;
+        //height: auto;
+        left: 0;
+        //right: 0;
+        bottom: 0;
+      }
     }
   }
 
-   span,
-   span:after,
-   span:before {
-    width: 100%;
-    height: 4px;
-    background-color: #fff;
-    transition: all 0.3s;
-    backface-visibility: hidden;
-    border-radius: 2px;
-    }
 }
+
+
 //header-end------------------------
 
 
@@ -357,29 +396,68 @@ $bz2-color : #009688;
 .footer{
   position: relative;
   width: 100%;
-  height: 50px;
-  margin-top: -50px;
-  &-main{
+  margin-top: -70px;
+  z-index: 1;
+
+
+  &_main{
     height: 150px;
     margin-top: -150px;
-    background-color: rgba(#373e42, 0.85);
+    @include tablets{
+      margin-top: -220px;
+    }
   }
   &__row{
     clear: both;
+    background-color: rgba(#373e42, 0.85);
+
     &_hr{
       border-top: solid rgba(#fff,.5) 1px;
-      font-family: "Roboto Light";
+      font-family: Roboto-Light;
+
     }
   }
   &__left{
     float: left;
     width: 50%;
     text-align: left;
+    @include tablets{
+      width: 100%;
+      text-align: center;
+    }
+
+    &__nav-menu{
+      margin: 30px 25px;
+      @include tablets{
+        margin:30px 25px 0;
+      }
+      @include phones{
+        margin:30px 0 0;
+      }
+      &__item{
+        display: inline-block;
+        margin: 5px;
+        @include tablets{
+          margin: 0 17px;
+        }
+        @include phones{
+          margin:0 5px;
+          font-size: 13px;
+        }
+      }
+      &__link:hover{
+        color: #00C19F;
+      }
+    }
   }
   &__right{
     float: right;
     width: 50%;
     text-align: right;
+    @include tablets{
+      width: 100%;
+      text-align: center;
+    }
   }
   &__about{
     color: rgba(#fff,.5);
@@ -389,24 +467,18 @@ $bz2-color : #009688;
     text-align: right;
     color: rgba(#fff,.5);
     margin: 10px 25px;
+    @include tablets{
+      text-align: center;
+    }
   }
   .copyright{
+    font-family: Roboto-Light;
     padding-top: 14px;
     text-align: center;
     color: #ffffff;
   }
 }
 
-.nav-menu{
-  margin: 30px 25px;
-  &__item{
-    display: inline-block;
-    margin: 5px;
-  }
-  &__link:hover{
-    color: #00C19F;
-  }
-}
 //footer end---------------------------------
 
 //about-------------------------------------
@@ -417,7 +489,6 @@ $bz2-color : #009688;
 
 .about{
   display: flex;
-  background: #F0EBDD;
 }
 .about__left, .about__right {
   float: left;
@@ -430,13 +501,21 @@ $bz2-color : #009688;
   height: 100px;
   width: 100%;
   fill: #fff;
+  &_left{
+    fill: #efeee9;
+  }
   &_col-ser{
     fill: #F0EBDD;
+    &_main{
+      @include tablets{
+        fill: #efeee9;
+      }
+    }
   }
 }
 .title {
   color: $main-font-color;
-  font-family:'BERNIER Regular';
+  font-family: BERNIERRegular;
   font-size:35px;
   padding: 45px 80px;
   display: inline-block;
@@ -449,15 +528,12 @@ $bz2-color : #009688;
   &_auth{
     padding: 40px 80px;
   }
-  &-about{
+  &.about__user__info__title{
     background: url(../img/about_header.png);
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
 
-    .header_text{
-      font-size: 63px;
-    }
   }
   &_mod{
     padding:10px 80px;
@@ -484,33 +560,67 @@ $bz2-color : #009688;
     left: $margin;
   }
 }
-.user-about, .about-data{
+
+.about__user{
+  display: flex;
   text-align: center;
-}
-.user-about__right{
-  margin-top: 20px;
+  background-color: #F0EBDD;
+  @include tablets{
+    flex-wrap: wrap;
+  }
+  &__info{
+    flex-grow: 1;
+    background: #efeee9;
+    width: 50%;
+    @include tablets{
+      width: 100%;
+    }
+    &__header__text{
+      font-size: 63px;
+    }
+
+    &__picture{
+      width: 320px;
+      margin: 0 auto;
+      @include phones{
+        width: 100%;
+      }
+    }
+
+  }
+
+  &__data{
+    flex-grow: 1;
+    width: 50%;
+    @include tablets{
+      width: 100%;
+    }
+    &__content{
+      margin-top: 20px;
+    }
+  }
 }
 
-.picture{
-  width: 320px;
-}
-
-.user-about__text, .about-user-info__text{
+.about__user__info__text, .about__user__data__description__text{
+  font-family: Roboto-Regular;
   word-wrap: break-word;
-  margin: 0 50px 20px;
+  margin: 0 30px 20px;
   text-align: left;
   line-height: 24px;
   overflow: hidden;
 }
 
-.skills{
+.skills {
   text-align: left;
-  margin: 0 50px;
-}
-.skills__item{
-  font-family:"Roboto Medium";
-  font-size: 28px;
-  margin: 20px 0;
+  margin-left: 30px;
+  @include tablets{
+    text-align: center;
+    margin: 0;
+  }
+  &__item {
+    font-size: 28px;
+    margin: 40px 0;
+  }
 }
 
 .circles {
@@ -521,17 +631,24 @@ $bz2-color : #009688;
   fill: none;
   stroke-width: 15;
 }
-.circle__first {
-  stroke: #dfdcd5;
-}
-.circle__second {
-  stroke: #1bb696;
-  stroke-dasharray: .0010 282.6;
-  transition: all 1s;
+.circle {
+  &__first {
+    stroke: #dfdcd5;
+  }
+
+  &__second {
+    stroke: #1bb696;
+    stroke-dasharray: .0010 282.6;
+    transition: all 1s;
+  }
 }
 
 .skill {
   display: flex;
+  flex-wrap: wrap;
+  @include tablets{
+    justify-content: center;
+  }
   &__item {
     width: 110px;
     height: 110px;
@@ -540,7 +657,7 @@ $bz2-color : #009688;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    margin: 15px;
+    margin: 15px 0 0 15px;
     padding: 0 20px;
     text-align: center;
     &__name{
@@ -559,9 +676,13 @@ $bz2-color : #009688;
 .contacts{
   @include centered();
   width: 380px;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: rgba(#fcfcfc,0.85);
   text-align: center;
+  @include phones{
+    @include centered(x);
+    top: 0;
+  }
   &__info{
     text-align: left;
     margin-left: 20px;
@@ -580,7 +701,7 @@ $bz2-color : #009688;
       }
       &__link{
         color: rgba(#455a64,.8);
-        font-family: "Roboto Medium";
+        font-family: Roboto-Medium;
         margin: 20px;
         &:hover{
           color: rgba(#455a64,1);
@@ -611,14 +732,17 @@ $bz2-color : #009688;
 }
 
 .container{
-  width: 1270px;
-  margin: 50px auto;
+  width: 100%px;
+  margin: 10px auto;
 }
 
 .blog{
-  font-family:Roboto-Regular;
+  font-family: Roboto-Regular;
   &__menu{
     width: 25%;
+    @include tablets{
+      display: none;
+    }
     &__list__link{
       padding: 18px;
       margin: 15px;
@@ -626,13 +750,15 @@ $bz2-color : #009688;
       &.link_active{
         border-right:3px solid #00bfa5;
         color: #00bfa5;
-        font-family:Roboto;
-        font-weight:bold;
+        font-family: Roboto-Bold;
       }
     }
   }
   &__contain{
     width: 75%;
+    @include tablets{
+      width: 100%;
+    }
     &__list{
       width: 80%;
       margin: 0 auto;
@@ -648,7 +774,7 @@ $bz2-color : #009688;
     }
   }
   &__title{
-    font-family:"BERNIER Regular";
+    font-family: BERNIERRegular;
     font-size: 35px;
     margin: 20px 0;
   }
@@ -683,95 +809,142 @@ $bz2-color : #009688;
   &__slider{
     background-color: #f0efe9;
     display: flex;
-    align-items: center;
+    flex-flow: column wrap;
+    align-items: stretch;
     margin-bottom: 20px;
-    justify-content:space-between;
+    min-height:650px;
+    height: 100vh;
+    @include tablets{
+      flex-wrap: nowrap;
+      height: auto;
+    }
 
     &__info{
-      flex-grow: 1;
-      &__desc{
-        color: $bz-color;
-        max-width: 420px;
-        border-top:1px solid rgba($bz2-color,.3);
-        border-bottom:1px solid rgba($bz2-color,.3);
-        line-height: 50px;
-        margin: 0 auto 40px;
-        text-transform: uppercase;
+      height: 100%;
+      display: flex;
+      background-color: #ebefe2;
+      width: 50%;
+      @include  tablets{
+        width: 100%;
       }
-
-      &__but{
+      &__container {
         margin:auto;
-        width: 200px;
+        @include tablets{
+          margin-bottom: 50px;
 
-        &__link{
-          display: block;
-          line-height: 45px;
-          background-color: $bz-color;
-          border-radius: 4px;
-          transition: .5s;
-          &:before{
-            content: '\f0c1';
-            font: normal normal normal 16px/1 FontAwesome;
-            margin: 10px;
-          }
-          &:hover{
-            background-color: $bz2-color;
+        }
+
+        &__desc {
+          color: $bz-color;
+          max-width: 420px;
+          border-top: 1px solid rgba($bz2-color, .3);
+          border-bottom: 1px solid rgba($bz2-color, .3);
+          line-height: 50px;
+          margin: 0 auto 40px;
+          text-transform: uppercase;
+        }
+
+        &__but {
+          margin: auto;
+          width: 200px;
+
+          &__link {
+            display: block;
+            line-height: 45px;
+            background-color: $bz-color;
+            border-radius: 6px;
+            transition: .5s;
+            &:before {
+              content: '\f0c1';
+              font: normal normal normal 16px/1 FontAwesome;
+              margin: 10px;
+            }
+            &:hover {
+              background-color: $bz2-color;
+            }
           }
         }
       }
     }
 
     &__photo {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
+      max-height: 100%;
+      flex: 3;
+      width: 50%;
+      @include tablets{
+        order:-1;
+        width: 100%;
+      }
 
       &__img{
-        padding: 100px 70px;
-        max-width:600px;
-        max-height: 500px;
+        width: 100%;
+        padding: 68px 50px;
+        max-width:700px;
+        max-height: 600px;
+        @include tablets{
+          padding: 50px 0 0 0;
+        }
       }
-      &__control {
-        display: flex;
-        justify-content: space-between;
-        &__arrow {
-          flex-grow: 1;
-          position: relative;
 
-          &__arrow{
-            position: absolute;
-            background: rgba(#888372,.5);
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            &:before{
+    }
 
-              font: normal normal normal 30px/1 FontAwesome;
-              @include centered();
-              text-shadow: 0px 2px 2px #000 ;
-            }
-          }
+    &__control {
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
+      flex: 1;
+      width: 50%;
+      @include  tablets{
+        width: 100%;
+      }
+      &__arrow {
+        flex-grow: 1;
+        position: relative;
 
-          &_prev:before{
-            content: '\f078';
+        &__arrow{
+          position: absolute;
+          background: rgba(#888372,.5);
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          transition: .3s;
+          &:hover{
+            background: rgba(#888372,.3);
           }
-          &_next:before{
-            content: '\f077';
+          &:before{
+            font: normal normal normal 30px/1 FontAwesome;
+            @include centered();
+            text-shadow: 0px 2px 2px #000 ;
           }
+        }
+
+        &__img{
+          max-width: 100%;
+          max-height: 100%;
+
+        }
+
+        &_prev:before{
+          content: '\f078';
+        }
+        &_next:before{
+          content: '\f077';
         }
       }
     }
   }
 }
 
-
 .aboutme{
   background: url(../img/bg-footer.jpg) no-repeat;
   background-size: cover;
+  //background-position: left bottom;
   text-align: center;
-  background-position-y: center;
   height: 100%;
+  width: 100%;
+  left: 0;
+  bottom:0 ;
 }
 
 .title-aboutme{
@@ -782,18 +955,28 @@ $bz2-color : #009688;
 .container__feed{
   width: 70%;
   margin: 0 auto 50px;
+  @include  tablets{
+    width: 100%;
+  }
 }
 
 .feedbacks__item{
+  font-family: Roboto-Regular;
   float: left;
   width: 50%;
   text-align: left;
   padding: 0 20px;
+  @include phones{
+    width: 100%;
+  }
   &__link{
     margin: 15px 0;
   }
   &__icon{
     color: rgba(#373e42,.2);
+    @include phones{
+      text-align: center;
+    }
   }
   &__profile__info{
     padding: 25px;
@@ -817,26 +1000,39 @@ $bz2-color : #009688;
 
 .contform{
   margin: auto;
-  padding-bottom: 160px;
+  margin-bottom: 160px;
   &__title{
     text-align: center;
-  }
-}
-.contform__title{
-  padding: 10px 60px;
-  &:before{
-    left: 20px;
-  }
-  &:after{
-    right: 20px;
+    padding: 10px 60px;
+    &:before{
+      left: 20px;
+    }
+    &:after{
+      right: 20px;
+    }
   }
 }
 
 .blur__form{
   width: 380px;
   margin: 0 auto;
-  border-radius: 4px;
-  background: rgba(#fff, .15);
+  border-radius: 6px;
+  position: relative;
+  z-index: 0;
+
+}
+.blur{
+  width: 100%;
+  height: 100%;
+  background: url(../img/bg-footer.jpg) no-repeat;
+  filter: blur(4px);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:160px;
+  z-index: -1;
+  background-position: -485px -631px;
 }
 
 .form{
@@ -845,7 +1041,7 @@ $bz2-color : #009688;
     display: block;
     margin: 0 20px 20px;
     padding: 15px;
-    border-radius: 4px;
+    border-radius: 6px;
     border: 0;
     width: 90%;
     &_main{
@@ -856,7 +1052,7 @@ $bz2-color : #009688;
     display: flex;
     justify-content:space-between;
     height: 45px;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 6px 6px;
     &__input{
       cursor: pointer;
       flex-grow: 1;
@@ -866,11 +1062,11 @@ $bz2-color : #009688;
       color: #fff;
       transition: .5s;
       &:first-child{
-        border-radius: 0 0 0 4px;
+        border-radius: 0 0 0 6px;
       }
       &:last-child{
         border:0;
-        border-radius: 0 0 4px 0;
+        border-radius: 0 0 6px 0;
       }
       &:hover{
         background: rgba($bz2-color,1);
@@ -895,3 +1091,100 @@ $bz2-color : #009688;
 }
 
 //Works end
+.navigation{
+  opacity: 0;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -10;
+  padding: 2rem;
+  text-align: center;
+  &:after{
+    right: 100%;
+  }
+  &:before{
+    left: 100%;
+  }
+
+  &.active{
+    opacity: 1;
+    z-index: 110;
+    &:before{
+      left: 50%;
+    }
+    &:after{
+      right: 50%;
+    }
+  }
+
+  &:before, &:after{
+    width: 50%;
+    background-color: rgba(0, 191, 165, 0.87);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    content: '';
+    height: 100%;
+    transition: all .3s ease-out;
+    z-index: -1;
+  }
+
+}
+.main-menu{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  &__list {
+    font-family: BERNIERRegular, sans-serif;
+    font-size: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &__item{
+      margin-bottom: 30px;
+      &__link{
+        position: relative;
+        &:before, &:after{
+          background-color: rgba(#fff,.5);
+          content: '';
+          width: 0;
+          height: 0.3125rem;
+          opacity: 0;
+          position: absolute;
+          -webkit-transition: all .5s;
+          transition: all .5s;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:after{
+          right: -40px;
+        }
+        &:before{
+          left: -40px;
+        }
+
+        &:hover{
+          outline-width: 0;
+
+        }
+
+        &:hover:before, &:hover:after,  &:focus:before, &:focus:after{
+          opacity: 1;
+          width: 22px;
+        }
+      }
+    }
+  }
+}
+.active{
+  overflow: hidden;
+}
