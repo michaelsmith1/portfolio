@@ -21,8 +21,11 @@ html{
 //header------------------------
 .gsection{
   height: 100vh;
+  min-height: 480px;
+  position: relative;
 }
 .bsection{
+  position: relative;
   height: 80vh;
   @include phones{
     height: 100vh;
@@ -30,6 +33,7 @@ html{
 }
 
 .wrapper {
+  position: relative;
   &_mod:after{
     height: 0px !important;
   }
@@ -39,14 +43,38 @@ html{
     height: 80px;
     display: block;
   }
-
-  &-welcome {
-    background: url(../img/bg.jpg);
-    background-size: cover;
-    position: relative;
-
+}
+//parallax
+.bg{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140%;
+  z-index: -1;
+  &:after{
+    content: '';
+    background-color: rgba(#016672,.3);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &__img{
+    min-width: 100%;
+    max-width: 180%;
+    min-height: 100%;
   }
 }
+
+.js-parallax-user{
+
+}
+//parallax
+
+
 
 .buttonauth{
   position: absolute;
@@ -77,14 +105,26 @@ html{
     @include centered(x)
   }
 }
+//table usercart___________
+@keyframes useranim {
+  0% {
+    opacity: 0;
+  }
 
+  100% {
+    opacity: 1;
+  }
+}
 .usercart{
   width: 380px;
   height: 420px;
   @include centered()
   @include phones{
     @include centered(x)
-    top: 80px;
+    top: 15%;
+  }
+  &_parallax{
+    width: 100%;
   }
   &__rotate{
     position: relative;
@@ -94,9 +134,13 @@ html{
     &.flip{
       transform: rotateY(180deg);
     }
-
   }
-
+  //animation after preloader
+  &.active{
+    animation-name: useranim;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+  }
   &-info_1{
     width: 100%;
     height: 100%;
@@ -110,12 +154,13 @@ html{
     backface-visibility: hidden;
     transform: rotateY(180deg);
   }
-  &_fon{
+  &__fon{
     width: 100%;
-    background: url(../img/portfolio_header.png);
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
+    position: absolute;
+    margin: 0 auto;
+    &__img{
+      width: 100%;
+    }
   }
 
   &__photo{
@@ -127,13 +172,12 @@ html{
     }
   }
 
-  &_blog{
-    top: 55%;
-
-  }
   &-info{
     text-align: center;
     border-radius: 6px 6px 0 0;
+    &__wrap{
+      display: block;
+    }
 
     &_blog{
       padding-bottom: 70px;
@@ -182,12 +226,7 @@ html{
       color: #ffffff;
     }
   }
-  &_phone{
-    @include phones{
-      @include centered(x)
-      top: 100px;
-    }
-  }
+
 
   &__menu{
     background: rgba($bz-color,1);
@@ -392,6 +431,12 @@ html{
 //footer----------------------------
 .empty{
   height: 150px;
+  @include tablets{
+    height: 200px;
+  }
+  @include phones{
+    height: 250px;
+  }
 }
 .footer{
   position: relative;
@@ -401,11 +446,9 @@ html{
 
 
   &_main{
-    height: 150px;
-    margin-top: -150px;
-    @include tablets{
-      margin-top: -220px;
-    }
+    position: absolute;
+    bottom: 0;
+    height: auto;
   }
   &__row{
     clear: both;
@@ -733,11 +776,12 @@ html{
 
 .container{
   width: 100%px;
-  margin: 10px auto;
+  margin: 0 auto;
 }
 
 .blog{
   font-family: Roboto-Regular;
+  background: #fff;
   &__menu{
     width: 25%;
     @include tablets{
@@ -798,6 +842,7 @@ html{
 
 .works{
   text-align: center;
+  background: #fff;
   &__header{
     background: url(../img/works_header.png) no-repeat;
     background-size: contain;
@@ -1087,7 +1132,13 @@ html{
   }
 }
 .up_arrow{
-  bottom: 75px;
+  bottom: 220px;
+  @include tablets{
+    bottom: 290px;
+  }
+  @include phones{
+    bottom: 330px;
+  }
 }
 
 //Works end
@@ -1188,3 +1239,76 @@ html{
 .active{
   overflow: hidden;
 }
+
+//preloader_____________
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader{
+  z-index: 500;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #00bfa5;
+  height: 100%;
+  background-image: url(../img/bg-blue.jpg);
+  background-size: contain;
+  &__container{
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    &__block{
+      width: 150px;
+      height: 150px;
+      @include centered()
+      &__animation{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border: 3px solid transparent;
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1.5s linear infinite;
+        &:before, &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          border: 3px solid transparent;
+          border-radius: 50%;
+          border-top-color: #fff;
+        }
+        &:before {
+          top: 15px;
+          left: 15px;
+          right: 15px;
+          bottom: 15px;
+          animation: spin 2s linear infinite;
+        }
+        &:after {
+          top: 6px;
+          left: 6px;
+          right: 6px;
+          bottom: 6px;
+          animation: spin 3s linear infinite;
+        }
+      }
+      &__percents{
+        color: #ffffff;
+        @include centered()
+      }
+    }
+  }
+}
+

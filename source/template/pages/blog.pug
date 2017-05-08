@@ -5,7 +5,10 @@ block variables
 
 block content
     .wrapper.wrapper_mod
-        section.bsection.wrapper-welcome
+        + preloader
+        section.gsection#parallax-Scroll
+            .bg.js-parallax-bg
+                img(src='assets/img/bg.jpg').bg__img
             .soclinks__mod
                 ul.soclinks__list
                     each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
@@ -13,13 +16,16 @@ block content
                             a(href=`${item.link}`).soclinks__list__item__link.soclinks__list__item__link_colbel
                                 i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
             + menu
-            .usercart.usercart_blog.usercart_phone
-                .usercart-info.usercart-info_mod.usercart-info_blog(style="background-image: url('assets/img/blog_header.png')")
+            .usercart.usercart_blog.usercart_phone.usercart_parallax
+                .usercart__fon.js-parallax-title
+                    img(src='assets/img/portfolio_header.png').usercart__fon__img
+                .usercart-info.usercart-info_mod.usercart-info_blog.js-parallax-user
                     img(src="/assets/img/me.jpg").usercart__photo.usercart__photo_blog
-                    .usercart-title.title
-                        h1.usercart-title-text Блог
-                    .usercart-info__description.usercart-info__description_norm
-                        | Статьи, которые я написал
+                    .usercart-info__wrap
+                        .usercart-title.title
+                            h1.usercart-title-text Блог
+                        .usercart-info__description.usercart-info__description_norm
+                            | Статьи, которые я написал
             .arrow.down_arrow
                 a.arrow__a(href="#")
                     i(class='fa fa-chevron-down fa-2x down-arrow__icon' aria-hidden='true')
@@ -37,8 +43,8 @@ block content
                 class="triangle")
                     polygon(points="0,100 1000,100 1000,0")
 
-        section.blog
-            .container
+        section.blog.clearfix
+            .container.clearfix
                 .blog__menu
                     ul.blog__menu__list
                         li.blog__menu__list__link.link_active
@@ -67,5 +73,5 @@ block content
                             .blog__text
                                 p.blog__text__content Таким образом начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке направлений прогрессивного развития. Разнообразный и богатый опыт новая модель организационной деятельности играет важную роль в формировании новых предложений. Товарищи! новая модель организационной деятельности играет важную роль в формировании систем массового участия.
                                 p.blog__text__content Не следует, однако забывать, что укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. Идейные соображения высшего порядка, а также рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач. Товарищи! постоянный количественный рост и сфера нашей активности способствует подготовки и реализации модели развития. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям.
-    .empty
-    + footer
+        .empty
+        + footer

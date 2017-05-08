@@ -5,7 +5,10 @@ block variables
 
 block content
     .wrapper.wrapper_mod
-        section.gsection.wrapper-welcome
+        + preloader
+        section.gsection#parallax-Scroll
+            .bg.js-parallax-bg
+                img(src='assets/img/bg.jpg').bg__img
             .soclinks__mod
                 ul.soclinks__list
                     each item in [{name:'vk', link:'https://vk.com/id391548754'}, {name:'github-alt', link:'https://github.com/michaelsmith1'}, {name:'linkedin', link:'#'}]
@@ -13,8 +16,10 @@ block content
                             a(href=`${item.link}` target='_blank').soclinks__list__item__link.soclinks__list__item__link_colbel
                                 i(class=`fa fa-${item.name} fa-2x` aria-hidden='true')
             + menu
-            .usercart.usercart_fon.usercart_phone
-                .usercart-info.usercart-info__mod
+            .usercart.usercart_parallax
+                .usercart__fon.js-parallax-title
+                    img(src='assets/img/portfolio_header.png').usercart__fon__img
+                .usercart-info.usercart-info__mod.js-parallax-user
                     img(src="/assets/img/me.jpg").usercart__photo
                     .usercart-info__name
                         | Михаил Журкин
@@ -85,4 +90,4 @@ block content
                     li.contacts__info__item.contacts__adress
                         a(href='https://yandex.ru/maps/-/C6e5vXOV' target='_blank').contacts__info__item__link г.Воронеж ул. 45 стрелковой девизии 62а
 
-    + footer
+        + footer
