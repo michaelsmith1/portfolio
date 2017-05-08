@@ -264,7 +264,7 @@ html{
 .soclinks{
   padding: 30px 0;
   &__footer{
-    margin: 19px 25px;
+    margin: 25px 25px;
   }
   &__mod{
     position: absolute;
@@ -284,7 +284,10 @@ html{
         display: inline-block;
         border: 1px solid rgba(#fff,.5);
         border-radius: 50%;
-        width: 52px;
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+        line-height: 1;
         padding: 9px;
         margin: 0 5px;
         color: rgba(#ffffff,0.5);
@@ -497,6 +500,7 @@ html{
     float: right;
     width: 50%;
     text-align: right;
+    line-height: 40px;
     @include tablets{
       width: 100%;
       text-align: center;
@@ -775,36 +779,90 @@ html{
 }
 
 .container{
-  width: 100%px;
+  max-width: 1366px;
   margin: 0 auto;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
 }
+//mobile__menu______________
+.blog{
+  &__aside_phone{
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    background-color: $bz-color;
+    left: 0;
+    top: 0;
+    opacity: .95;
+    transition: left .35s;
+    display: none;
+    z-index: 111;
+    @include tablets{
+      display: block;
+    }
+  }
+  &_phone__menu {
+    &__js_disk {
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      width: 20px;
+      height: 45px;
+      background-color: $bz-color;
+      box-shadow: 3px 0px 3px 0px rgba(0, 0, 0, .2);
+      border-radius: 0 30px 30px 0;
+    }
+  }
+}
+.blocked{
+  left: -50%;
+}
+//mobile__menu______________
 
 .blog{
   font-family: Roboto-Regular;
   background: #fff;
-  &__menu{
-    width: 25%;
+  &__aside{
+    width: 17.8%;
     @include tablets{
       display: none;
     }
+  }
+  &__menu{
+    &.fixed{
+      position: fixed;
+      top: 20px;
+      width: 17.8%;
+    }
+
     &__list__link{
-      padding: 18px;
+      padding: 8px;
       margin: 15px;
       text-align: right;
+      cursor: pointer;
       &.link_active{
         border-right:3px solid #00bfa5;
         color: #00bfa5;
         font-family: Roboto-Bold;
       }
+      &_phone{
+        color: #ffffff;
+        &.link_active{
+          color: #ffffff;
+          font-family: Roboto-Bold;
+          border-right:3px solid #fff;
+        }
+      }
     }
   }
   &__contain{
-    width: 75%;
+    width: 70%;
     @include tablets{
       width: 100%;
     }
     &__list{
-      width: 80%;
+      width: 85%;
       margin: 0 auto;
       &__link{
         padding-bottom: 55px;

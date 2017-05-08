@@ -43,18 +43,19 @@ block content
                 class="triangle")
                     polygon(points="0,100 1000,100 1000,0")
 
-        section.blog.clearfix
+        section.blog.clearfix#blog
             .container.clearfix
-                .blog__menu
-                    ul.blog__menu__list
-                        li.blog__menu__list__link.link_active
-                            | Самое важное в SASS
-                        li.blog__menu__list__link
-                            | Приёмы в вёрстке, без которых не обходится ни один сайт
-                        li.blog__menu__list__link
-                            | Самый необходимый набор Gulp плагинов
-                        li.blog__menu__list__link
-                            | Почему я выбрал Jade
+                aside.blog__aside
+                    .blog__menu
+                        ul.blog__menu__list
+                            li.blog__menu__list__link
+                                | Самое важное в SASS
+                            li.blog__menu__list__link
+                                | Приёмы в вёрстке, без которых не обходится ни один сайт
+                            li.blog__menu__list__link
+                                | Самый необходимый набор Gulp плагинов
+                            li.blog__menu__list__link
+                                | Почему я выбрал Jade
                 .blog__contain
                     ul.blog__contain__list
                         li.blog__contain__list__link
@@ -73,5 +74,17 @@ block content
                             .blog__text
                                 p.blog__text__content Таким образом начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке направлений прогрессивного развития. Разнообразный и богатый опыт новая модель организационной деятельности играет важную роль в формировании новых предложений. Товарищи! новая модель организационной деятельности играет важную роль в формировании систем массового участия.
                                 p.blog__text__content Не следует, однако забывать, что укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. Идейные соображения высшего порядка, а также рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач. Товарищи! постоянный количественный рост и сфера нашей активности способствует подготовки и реализации модели развития. С другой стороны рамки и место обучения кадров влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям.
+            .blog__aside_phone.blocked
+                .blog_phone__menu
+                    a.blog_phone__menu__js_disk
+                    ul.blog__menu__list
+                        li.blog__menu__list__link.blog__menu__list__link_phone
+                            | Самое важное в SASS
+                        li.blog__menu__list__link.blog__menu__list__link_phone
+                            | Приёмы в вёрстке, без которых не обходится ни один сайт
+                        li.blog__menu__list__link.blog__menu__list__link_phone
+                            | Самый необходимый набор Gulp плагинов
+                        li.blog__menu__list__link.blog__menu__list__link_phone
+                            | Почему я выбрал Jade
         .empty
         + footer
