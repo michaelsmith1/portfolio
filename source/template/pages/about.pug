@@ -64,7 +64,7 @@ block content
                     .about__user__data__description__text
                         p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачина Backend. Но давайте по порядку.
                 .about__user__data__content
-                  ul.skills
+                  ul.skills#skills
                       each skill in skills
                           each skillsArray, skillName in skill
                               li.skills__item= skillName
@@ -76,7 +76,8 @@ block content
                                                   circle.circle__second.circle-15(r='45', cx='50%', cy='50%', transform='rotate(-90 55 55)')
                                               .skill__item__name= skillTitle
 
-        section.map
+        section.map__contacts
+            .map#map
             .contacts
                 .title.title_mod
                     h2 Контакты

@@ -18,6 +18,18 @@ html{
     font-size: 14px;
   }
 }
+
+//form_validation----------------
+input.form__input:focus:required:invalid{
+  border: red solid 2px;
+  outline: 2;
+}
+.form__input:required:valid {
+  border: $bz-color solid 2px;
+  outline: 2;
+}
+
+//form_validation----------------
 //header------------------------
 .gsection{
   height: 100vh;
@@ -676,7 +688,7 @@ html{
   left: 0;
   width:110px;
   fill: none;
-  stroke-width: 15;
+  stroke-width: 20;
 }
 .circle {
   &__first {
@@ -685,7 +697,7 @@ html{
 
   &__second {
     stroke: #1bb696;
-    stroke-dasharray: .0010 282.6;
+    stroke-dasharray: 250.000 282.6;
     transition: all 1s;
   }
 }
@@ -715,13 +727,20 @@ html{
 
 .map{
   position: relative;
-  background: url(../img/map.jpg);
+  overflow: hidden;
+  width: 100%;
   clear: both;
-  height: 800px;
+  height: 1050px;
+  &__contacts{
+    position: relative;
+    height: 1050px;
+    width: 100%;
+  }
 }
 
 .contacts{
-  @include centered();
+  @include centered(x);
+  top: 25%;
   width: 380px;
   border-radius: 6px;
   background-color: rgba(#fcfcfc,0.85);
@@ -1294,7 +1313,7 @@ html{
     }
   }
 }
-.active{
+.active-body{
   overflow: hidden;
 }
 

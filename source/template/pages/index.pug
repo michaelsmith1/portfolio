@@ -35,29 +35,29 @@ block content
         .usercart-info_2
           .usercart-info.usercart-welcome.usercart_auth
             .title.title_auth Авторизуйтесь
-            form.form__auth
+            form.form__auth#authorization(method='post' action='')
               label.form__lblmain.form__lblmain_login
-              input.form__input.form__input_main(placeholder='Логин' type='text' name='login')
+              input.form__input.form__input_main#input_login(placeholder='Логин' type='text' name='login')
               label.form__lblmain.form__lblmain_pswrd
-              input.form__input.form__input_main(placeholder='Пароль' type='password' name='password')
+              input.form__input.form__input_main#input_pswrd(placeholder='Пароль' type='password' name='password')
               label.form__lbl.form__lbl__chec
-                input.form__chec.form__chec_chel(type='checkbox' name='chel' required='required')
+                input.form__chec.form__chec_chel#chel(type='checkbox' name='chel' required='required')
                 span.form__chec_s.form__chec_chel_s Я человек
               .form__you Вы точно не робот?
               label.form__lbl.form__lbl__radio
-                input.form__chec.form__chec__radio(type='radio' name='robot')
+                input.form__chec.form__chec__radio#no_robot(type='radio' name='robot' value='1')
                 span.form__chec_s.form__chec__radio_s Да
               label.form__lbl.form__lbl__radio
-                input.form__chec.form__chec__radio(type='radio' name='robot')
+                input.form__chec.form__chec__radio#robot(type='radio' name='robot' value='0')
                 span.form__chec_s.form__chec__radio_s Не уверен
-          .usercart__menu
-            ul.usercart__menu__list
-              li.usercart__menu__list__item
-                a.usercart__menu__list__item__link.buttonauth__link_mnu(href='#')
-                  | На главную
-              li.usercart__menu__list__item
-                a.usercart__menu__list__item__link(href='#')
-                  | Войти
+              .error__msg
+              .usercart__menu
+                ul.usercart__menu__list
+                  li.usercart__menu__list__item
+                    a.usercart__menu__list__item__link.buttonauth__link-(href='#')
+                      | На главную
+                  li.usercart__menu__list__item
+                    input.usercart__menu__list__item__link(type='submit' name='send' value='Войти')
   footer.footer
     .copyright
       | © Михаил Журкин | создано с любовью студентом LoftSchool | 2017
