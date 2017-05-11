@@ -932,7 +932,6 @@ input.form__input:focus:required:invalid{
     background-color: #f0efe9;
     display: flex;
     flex-flow: column wrap;
-    align-items: stretch;
     margin-bottom: 20px;
     min-height:650px;
     height: 100vh;
@@ -990,31 +989,47 @@ input.form__input:focus:required:invalid{
     }
 
     &__photo {
-      max-height: 100%;
-      flex: 3;
+      position: relative;
       width: 50%;
+      height: 70%;
+      flex: 4;
       @include tablets{
         order:-1;
         width: 100%;
       }
 
-      &__img{
+      &__cont {
+        height: 100%;
         width: 100%;
-        padding: 68px 50px;
-        max-width:700px;
-        max-height: 600px;
-        @include tablets{
-          padding: 50px 0 0 0;
+        min-height: 300px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__img {
+          position: absolute;
+          margin:auto;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          max-width: 70%;
+          max-height: 70%;
+          transition: .5s;
+
+          @include tablets {
+            // padding: 50px 0 0 0;
+          }
         }
       }
-
     }
 
     &__control {
       display: flex;
       justify-content: space-between;
-      height: 100%;
-      flex: 1;
+      height: 30%;
+      flex: 2;
       width: 50%;
       @include  tablets{
         width: 100%;
@@ -1024,27 +1039,28 @@ input.form__input:focus:required:invalid{
         position: relative;
 
         &__arrow{
-          position: absolute;
-          background: rgba(#888372,.5);
-          width: 100%;
-          height: 100%;
-          left: 0;
-          top: 0;
-          transition: .3s;
-          &:hover{
-            background: rgba(#888372,.3);
+          &:after{
+            content: '';
+            position: absolute;
+            background: rgba(#000,.3);
+            width: 100%;
+            height: 100%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            transition:all .3s linear;
+            z-index: 2;
+          }
+          &:hover:after{
+            background: rgba(#000,.5);
           }
           &:before{
             font: normal normal normal 30px/1 FontAwesome;
             @include centered();
             text-shadow: 0px 2px 2px #000 ;
+            z-index: 3;
           }
-        }
-
-        &__img{
-          max-width: 100%;
-          max-height: 100%;
-
         }
 
         &_prev:before{
@@ -1052,6 +1068,35 @@ input.form__input:focus:required:invalid{
         }
         &_next:before{
           content: '\f077';
+        }
+        &__list{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          overflow: hidden;
+          &__item{
+            position: absolute;
+            top: -100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            &_next{
+              top: 100%;
+            }
+            &.active-thumb{
+              top: 0;
+            }
+            &__img{
+              display: block;
+              margin:auto;
+              max-width: 100%;
+              height: 100%;
+            }
+          }
         }
       }
     }

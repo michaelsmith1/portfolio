@@ -45,23 +45,37 @@ block content
             .title.works__header
                 h1.works__header__text Мои работы
 
-            .works__slider
+            .works__slider#slider
                 .works__slider__info
                     .works__slider__info__container
-                        .title.works__slider__info__container__title Сайт строительной компании
-                        .works__slider__info__container__desc Html, css, Javascript, Wordpress
+                        .title.works__slider__info__container__title.js-slider-title Сайт строительной компании
+                        .works__slider__info__container__desc.js-slider-tehnologyes Html, css, Javascript, Wordpress
                         .works__slider__info__container__but
-                            a.works__slider__info__container__but__link(href='#')
+                            a.works__slider__info__container__but__link.js-slider-site-link(href='#')
                                 | Помотреть сайт
                 .works__slider__photo
-                        img.works__slider__photo__img(src='assets/userfiles/Untitled-1.png')
+                    .works__slider__photo__cont.js-slider-screen
+                        img.works__slider__photo__cont__img.js-slider-screen-img(src='' alt='')
                 .works__slider__control
                         .works__slider__control__arrow
-                            img.works__slider__control__arrow__img(src='assets/userfiles/mockup.png')
-                            a.works__slider__control__arrow__arrow.works__slider__control__arrow_prev(href='#' title='prev_slider' alt='prev_slider')
+                            a.works__slider__control__arrow__arrow.works__slider__control__arrow_prev.js-slide-prev-but(href='#' title='prev_slider' )
+                                ul.works__slider__control__arrow__list.js-slider-list
+                                    li.works__slider__control__arrow__list__item.js-slider-item(data-full='assets/img/works/loft.png' data-title='Школа Веб-разработки' data-skills='Html5' data-link='http://bodyfence.ru/')
+                                        img.works__slider__control__arrow__list__item__img(src='assets/img/works/thumb/loft.png')
+                                    li.works__slider__control__arrow__list__item.js-slider-item(data-full='assets/img/works/bodyfence.png' data-title='Антигравийная защита кузова' data-skills='Html5 JavaScript' data-link='vienn.ru')
+                                        img.works__slider__control__arrow__list__item__img(src='assets/img/works/thumb/bodyfence.png')
+                                    li.works__slider__control__arrow__list__item.js-slider-item(data-full='assets/img/works/thumb/Vienn-Datailing.png' data-title='Детейлинг студия' data-skills='Html5 CSS3' data-link='vienn.ru')
+                                        img.works__slider__control__arrow__list__item__img(src='assets/img/works/thumb/Vienn-Datailing.png')
                         .works__slider__control__arrow
-                            img.works__slider__control__arrow__img(src='assets/userfiles/Mockup2.png')
-                            a.works__slider__control__arrow__arrow.works__slider__control__arrow_next(href='#' title='next_slider' alt='next_slider')
+                            a.works__slider__control__arrow__arrow.works__slider__control__arrow_next.js-slide-next-but(href='#' title='prev_slider' )
+                                ul.works__slider__control__arrow__list
+                                    li.works__slider__control__arrow__list__item.works__slider__control__arrow__list__item_next.js-slider-item(data-full='assets/img/works/loft.png' data-title='Школа Веб-разработки' data-skills='Html5' data-link='http://bodyfence.ru/')
+                                        img.works__slider__control__arrow__list__item__img(src='assets/img/works/thumb/loft.png')
+                                    li.works__slider__control__arrow__list__item.works__slider__control__arrow__list__item_next.js-slider-item(data-full='assets/img/works/bodyfence.png' data-title='Антигравийная защита кузова' data-skills='Html5 JavaScript' data-link='vienn.ru')
+                                        img.works__slider__control__arrow__list__item__img(src='assets/img/works/thumb/bodyfence.png')
+                                    li.works__slider__control__arrow__list__item.works__slider__control__arrow__list__item_next.js-slider-item(data-full='assets/img/works/thumb/Vienn-Datailing.png' data-title='Детейлинг студия' data-skills='Html5 CSS3' data-link='vienn.ru')
+                                        img.works__slider__control__arrow__list__item__img(src='assets/img/works/thumb/Vienn-Datailing.png')
+
 
 
         section.aboutme
