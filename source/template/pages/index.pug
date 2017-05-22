@@ -36,12 +36,17 @@ block content
           .usercart-info.usercart-welcome.usercart_auth
             .title.title_auth Авторизуйтесь
             form.form__auth#authorization(method='post' action='')
+              .tooltip_error.tooltip_error-login Вы не ввели логин
               label.form__lblmain.form__lblmain_login
               input.form__input.form__input_main#input_login(placeholder='Логин' type='text' name='login')
+
+              .tooltip_error.tooltip_error-pswrd Вы не ввели пароль
+              .tooltip_error.tooltip_error-chec Кто же вы?
+
               label.form__lblmain.form__lblmain_pswrd
               input.form__input.form__input_main#input_pswrd(placeholder='Пароль' type='password' name='password')
               label.form__lbl.form__lbl__chec
-                input.form__chec.form__chec_chel#chel(type='checkbox' name='chel' required='required')
+                input.form__chec.form__chec_chel#chel(type='checkbox' name='chel' )
                 span.form__chec_s.form__chec_chel_s Я человек
               .form__you Вы точно не робот?
               label.form__lbl.form__lbl__radio

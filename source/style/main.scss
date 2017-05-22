@@ -1202,6 +1202,64 @@ input.form__input:focus:required:invalid{
   background-position: -485px -631px;
 }
 
+
+//form---------------
+@keyframes eranim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.tooltip_error{
+  line-height: 42px;
+  background-color: #FC3A36;
+  position: absolute;
+  border-radius: 6px;
+  color: #ffffff;
+  left: 70px;
+  top: 75px;
+  padding: 0 20px;
+  cursor: default;
+  user-select: none;
+  display: none;
+
+  &:before{
+    content: '';
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+    position: absolute;
+    background-color: #FC3A36;
+    top: 36px;
+    left: 85px;
+  }
+  &-pswrd{
+    top: 257px;
+    z-index: 3;
+    &:before{
+      top: -6px;
+    }
+  }
+  &-chec{
+    top: 285px;
+    left: 275px;
+    padding: 0 10px;
+    &:before{
+      top: 15px;
+      left: -5px;
+    }
+  }
+  &.disp-er{
+    display: block;
+    animation-name: eranim;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+  }
+}
+
 .form{
   margin:0 auto;
   &__input{
